@@ -1,0 +1,143 @@
+\documentclass[12pt, openright, a4paper, brazil, oneside]{abntex2}
+
+\usepackage{lmodern}                 
+\usepackage[T1]{fontenc}             
+\usepackage[utf8]{inputenc}         
+\usepackage[brazil]{babel}           
+\usepackage{amsmath, amsfonts, amssymb, amsthm} 
+\usepackage{graphicx}                
+\usepackage{microtype}              
+\usepackage{indentfirst}             
+\usepackage{color}                   
+\usepackage{hyperref}                
+\usepackage[top=3cm,left=3cm,right=2cm,bottom=2cm]{geometry}
+\graphicspath{{figuras/}}
+
+% Configurações de aparência do PDF final
+\hypersetup{
+    pdftitle={Utilização de Redes Neurais na Análise e Previsão de Séries Temporais Meteorológicas em Itapetinga-BA}, 
+    pdfauthor={Lucas Silva de Oliveira},
+    pdfsubject={Trabalho de Conclusão de Curso},
+    pdfcreator={LaTeX with abnTeX2},
+    pdfkeywords={redes neurais}{análise de séries temporais}{meteorologia},
+    colorlinks=true,                
+    linkcolor=black,                 
+    citecolor=black,                
+    filecolor=magenta,             
+    urlcolor=black,
+    breaklinks=true
+}
+
+\bibliographystyle{abntex2-alf}
+
+% Documento
+\begin{document}
+
+    % Capa
+    \begin{capa}
+        \center
+        \includegraphics[width=2cm]{template/ifbaiano.png}\\[0.2cm]
+        {\ABNTEXchapterfont\large INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA BAIANO}\\[0.2cm]
+        {\ABNTEXchapterfont\large Bacharelado em Sistemas de Informação} \\[4cm]
+
+        {\ABNTEXchapterfont\bfseries\LARGE UTILIZAÇÃO DE REDES NEURAIS NA ANÁLISE E PREVISÃO DE SÉRIES TEMPORAIS METEOROLÓGICAS EM ITAPETINGA-BA}\\[4cm]
+
+        {\ABNTEXchapterfont\large Lucas Silva de Oliveira}\\[4cm]
+
+        \vfill
+        \large Itapetinga - Bahia\\
+        \today
+    \end{capa}
+
+    % Folha de rosto
+    \begin{folhaderosto}
+
+        \begin{center}
+            \ABNTEXchapterfont\bfseries\LARGE UTILIZAÇÃO DE REDES NEURAIS NA ANÁLISE E PREVISÃO DE SÉRIES TEMPORAIS METEOROLÓGICAS EM ITAPETINGA-BA
+        \end{center}
+
+        \vspace{4cm}
+
+        \begin{center}
+            {\ABNTEXchapterfont\large Lucas Silva de Oliveira}
+        \end{center}
+
+        \vspace{4cm}
+
+        \vspace*{\fill}
+        \begin{flushright}
+            \begin{minipage}{8.6cm}
+                Trabalho de Conclusão de Curso apresentado como 
+                requisito parcial para obtenção 
+                do título de Bacharel em Sistemas de Informação.
+                
+                \vspace{0.5cm}
+                \textbf{Orientador(a)}: Prof(a). Dr(a). Nome do(a) Orientador(a).
+            \end{minipage}
+        \end{flushright}
+
+        \vspace{5.5cm}
+
+        \begin{center}
+            \large Itapetinga - Bahia\\
+            \today
+        \end{center}
+
+    \end{folhaderosto}
+
+
+    % Dedicatória
+    \begin{dedicatoria}
+        \vspace*{\fill}
+        \begin{flushright}
+            \noindent
+            \textit{Dedico este trabalho a\ldots}
+        \end{flushright}
+    \end{dedicatoria}
+
+    % Agradecimentos
+    \begin{agradecimentos}
+        Agradeço a\ldots
+    \end{agradecimentos}
+
+    % Epígrafe
+    \begin{epigrafe}
+        \vspace*{\fill}
+        \begin{flushright}
+            \textit{
+            "Coloca aqui a epígrafe."\\
+            --- Nome do autor da epígrafe}
+        \end{flushright}
+    \end{epigrafe}
+
+    % Resumo
+    \begin{resumo}
+        Aqui fica o resumo em português.\\   
+        \textbf{Palavras-chave}: redes neurais, séries temporais, meteorologia.
+    \end{resumo}
+
+    % Abstract
+    \begin{abstract}
+        Aqui fica o resumo em inglês.\\ 
+        \textbf{Keywords}: neural networks, time series, meteorology.
+    \end{abstract}
+
+    \newpage
+
+    \tableofcontents
+ 
+    % Corpo do Trabalho
+
+    \include{conteudo/1-Introducao}
+
+    \include{conteudo/2-Referencial}
+
+    \include{conteudo/3-Metodologia}
+
+    \include{conteudo/4-Resultados}
+    \include{conteudo/5-Consideracoes}
+
+    % Referências
+    \bibliography{referencias}
+
+\end{document}

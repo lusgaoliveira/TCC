@@ -1,0 +1,27 @@
+# Arquivos auxiliares do LaTeX (Criados quando o projeto é buildado)
+
+*.aux
+*.bbl
+*.blg
+*.brf
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.snm
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.xdv
+
+# Arquivos temporários e de cache
+
+.latexmkrc
+*.dvi
+*.ps
+*.synctex(busy)
