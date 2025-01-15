@@ -1,5 +1,7 @@
 \chapter{REFERENCIAL TEÓRICO}
-Para o entendimento e progresso deste trabalho, faz-se necessária a compreensão de conceitos relacionados a Séries Temporais, incluindo suas Técnicas e Modelagem, Análise de Dados Meteorológicos, Fontes de Dados Meteorológicos, Aplicações de Séries Temporais em Meteorologia, Ferramentas e Métodos Estatísticos, bem como a Análise Exploratória de Dados, Redes Neurais e Séries Temporais com Redes Neurais. 
+Para o entendimento e progresso deste trabalho, faz-se necessária a compreensão de conceitos relacionados a 
+Séries Temporais, incluindo suas técnicas e modelagem, fontes de Dados Meteorológicos, 
+aplicações de séries temporais em Meteorologia, redes neurais e séries temporais com redes neurais. 
 
 \section{Séries Temporais}
     Muitas pessoas, em algum momento, já imaginaram como seria prever o futuro e ter acesso a informações sobre eventos 
@@ -105,11 +107,30 @@ Para o entendimento e progresso deste trabalho, faz-se necessária a compreensã
             linha em um hiperplano~\cite{haykin2009neural}.
 
 
-        \subsubsection{Adelaide}
+        \subsubsection{Adaline}
 
+            Em 1960, Bernard Widrow e Marcian Hoff desenvolveram uma regra de aprendizagem denominada "Regra Delta", 
+            também conhecida como Least Mean Squares (LMS) ou método do Gradiente Descendente. Com base nessa regra, 
+            foi criada uma rede neural com a mesma estrutura do Perceptron, composta por uma camada de entrada, uma 
+            camada de saída e um único neurônio. A diferença principal residia na regra de aprendizado empregada para 
+            o ajuste dos pesos.
+            
+            A Regra Delta, que tem como finalidade ajustar os pesos do neurônio, busca minimizar a diferença entre a 
+            saída desejada e a resposta obtida a partir da combinação linear de todas as amostras. Utilizando a 
+            minimização do erro quadrático médio entre os valores previstos e reais, o método opera dentro de um 
+            contexto de aprendizagem supervisionada, onde há uma saída esperada previamente definida. O algoritmo 
+            ajusta iterativamente o vetor de pesos \( w\) atribuído à rede, com o objetivo de determinar um 
+            \( w^{*} \) ótimo tal que o erro quadrático \({E(w{*})}\), calculado sobre todo o conjunto de amostras, 
+            seja minimizado.
+
+            Essa rede neural foi projetada para aplicações em sistemas de chaveamento de circuitos telefônicos e 
+            ficou conhecida como Adaline (Adaptive Linear Neuron). A Adaline foi uma das primeiras redes neurais 
+            implementadas em contextos industriais, marcando um avanço significativo na aplicação de tecnologias 
+            baseadas em inteligência artificial. Além disso, a regra de aprendizagem Widrow-Hoff para uma rede neural 
+            de apenas uma camada foi o percursor da regra de Backpropagation para múltiplas camadas~\cite{Fausett1994,silva2010}
         \subsubsection{Backpropagation}
       
-        
+            FALAR COMO A BACKPROPAGATION FEZ AS REDES NEURAIS EVOLUIREM E VOLTAREM A SEREM ESTUDADAS
     \subsection{Componentes das Redes Neurais}
         %
 
