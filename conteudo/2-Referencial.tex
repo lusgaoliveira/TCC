@@ -1,7 +1,7 @@
 \chapter{REFERENCIAL TEÓRICO}
 Para o entendimento e progresso deste trabalho, faz-se necessária a compreensão de conceitos relacionados a Séries Temporais, incluindo suas Técnicas e Modelagem, Análise de Dados Meteorológicos, Fontes de Dados Meteorológicos, Aplicações de Séries Temporais em Meteorologia, Ferramentas e Métodos Estatísticos, bem como a Análise Exploratória de Dados, Redes Neurais e Séries Temporais com Redes Neurais. 
 
-\section{SÉRIES TEMPORAIS}
+\section{Séries Temporais}
     Muitas pessoas, em algum momento, já imaginaram como seria prever o futuro e ter acesso a informações sobre eventos 
     ou situações de suas vidas. Essa curiosidade reflete um desejo universal, mas também uma necessidade presente em 
     diversas áreas, como na gestão governamental, no setor financeiro e em contextos sociais. Nesse cenário, surge o 
@@ -11,7 +11,7 @@ Para o entendimento e progresso deste trabalho, faz-se necessária a compreensã
     também desenvolver e ajustar modelos estatísticos capazes de explicar ou prever o comportamento dos dados 
     observados.
     
-    De acordo com CITAR O LIVRO Introduction to Time Series and Forecasting, séries temporais podem ser classificadas 
+    De acordo com~\cite{brockwell2002}, séries temporais podem ser classificadas 
     discretas e continuas, uma série temporal é discreta quando o conjunto \( t_0 \) de tempos em que as observações 
     são feitas é um conjunto discreto, como o caso de observações que são realizadas em um determinado intervalo de 
     tempo fixo. Sendo denotada por:
@@ -31,9 +31,9 @@ Para o entendimento e progresso deste trabalho, faz-se necessária a compreensã
     
     Ao iniciar a análise de uma série temporal é de alta valia utilizar de gráficos criados sequencialmente no tempo,
     visto que isso pode revelar determinados padrões de comportamento e algumas características que podem estar 
-    presentes nos dados, como tendência, sazonalidade, ciclidade e ruído também chamado de erro aleatório (Citar ufrb). 
+    presentes nos dados, como tendência, sazonalidade, ciclidade e ruído também chamado de erro aleatório~\cite{costa2019}. 
 
-    \subsection{DECOMPOSIÇÃO CLÁSSICA}
+    \subsection{Decomposição}
 
         A tendência ($\mu_t$) é falar o que é a tendência \\
         
@@ -47,7 +47,7 @@ Para o entendimento e progresso deste trabalho, faz-se necessária a compreensã
 
 
 
-\section{REDES NEURAIS}
+\section{Redes Neurais}
 %Falar brevemente
     O cérebro humano é um computador de grande complexidade, não linear e paralelo, 
     composto por cerca de 10 bilhões de neurônios, cada um conectado com outros 10 
@@ -59,7 +59,7 @@ Para o entendimento e progresso deste trabalho, faz-se necessária a compreensã
     para ativar o neurônio, um sinal eletroquímico ao longo do axônio, possuindo a 
     habilidade de organizar os neurônios, um dos seus componentes integradores, para 
     assim realizar várias formas de processamento de forma mais rápida que os 
-    computadores digitivas convencionais. (CITAR O O LIVRO).
+    computadores digitivas convencionais~\cite{haykin2009neural}.
 
     A Figura \ref{fig:celula_piramidial} mostra a estrutura do neurônio:
     \begin{figure}[!htb]
@@ -70,42 +70,61 @@ Para o entendimento e progresso deste trabalho, faz-se necessária a compreensã
         \label{fig:celula_piramidial}
     \end{figure}
         
-    \subsection{HISTÓRICO}
-        % No livro de Fausett L.-Fundamentals of Neural Networks_ Architectures, Algorithms, and Applications (1994).pdf 
+    \subsection{Histórico}
         As redes neurais são frequentemente consideradas um complemento à computação tradicional. Curiosamente, 
         John von Neumann, amplamente reconhecido como o pai da computação moderna devido à sua proposta da arquitetura 
         que possibilitou a criação do computador de programa armazenado, demonstrava grande interesse em modelar o 
         funcionamento do cérebro humano. Esse interesse levantou debates entre pesquisadores sobre a possível interação 
         entre as ideias de von Neumann e os primórdios das redes neurais. Alguns estudiosos destacam indícios que 
-        sugerem a visão de von Neumann sobre as direções futuras do desenvolvimento dos computadores (CITAR O LIVRO).
+        sugerem a visão de von Neumann sobre as direções futuras do desenvolvimento dos computadores~\cite{Fausett1994}.
 
-        \subsubsection{PERCEPTRONS}
-            Em 1958, um psicólogo chamado Rosenblatt, publicou um artigo que descrevia pela primeira vez de forma a
-            algoritmica o funcionamento de uma rede neural. Dessa forma, inspirando diversos pesquisadores a dedicarem
-            seus esforços de pesquisas envolvendo a temática de redes neurais e seus diferentes aspescos na década de 
-            1960 à 1970 (CITAR LIVRO Neural Networks and Learning Machines, Third Edition). 
+        \subsubsection{Perceptrons}
             
+            Em 1958, o psicólogo Frank Rosenblatt publicou um artigo que, pela primeira vez, descreveu de forma 
+            algorítmica o funcionamento de um modelo de rede neural para aprendizagem supervisioanda. Essa 
+            publicação inspirou inúmeros pesquisadores a direcionarem seus esforços para estudos sobre redes neurais, 
+            explorando diversos aspectos dessa temática ao longo das décadas de 1960 e 1970~\cite{haykin2009neural}.
 
-        \subsubsection{ADELAIDE}
+            \begin{figure}[!htb]
+                \centering
+                \caption{Fluxo do perceptron.}
+                \includegraphics[scale=0.8]{fluxo-perceptron.png}\\
+                {\footnotesize Fonte: Haykin (2009).}\
+                \label{fig:fluxo-perceptron}
+            \end{figure}
 
-        \subsubsection{BACKPROPAGATION}
+            Como apresentado na Figura~\ref{fig:fluxo-perceptron}, o perceptron consiste de um único neurônio com 
+            pesos sinápticos ajustáveis e um viés. Ele possui uma camada de entrada (a retina) conectada aos pesos e 
+            uma camada de saída. Seu funcionamento baseia-se em um combinador linear seguido por uma função de 
+            ativação que realiza uma função linear. Esse nó somador (o neurônio) calcula uma combinação linear das 
+            entradas aplicadas às suas sinapses, além de incorporar um viés aplicado externamente que ajusta a posição
+            da função de ativação. O resultado dessa soma é passado à função de ativação, que produz uma saída de +1 
+            se a entrada for positiva, ou -1, se for negativa. O perceptron é um classificador binário, pois resolve 
+            apenas problemas de classificação de padrões linearmente separáveis, ou seja, é capaz de lidar 
+            exclusivamente com problemas nos quais duas classes podem ser separadas por uma 
+            linha em um hiperplano~\cite{haykin2009neural}.
+
+
+        \subsubsection{Adelaide}
+
+        \subsubsection{Backpropagation}
       
         
-    \subsection{COMPONENTES DAS REDES NEURAIS}
+    \subsection{Componentes das Redes Neurais}
         %
 
-    \subsection{APRENDIZADO EM REDES NEURAIS}
-    \subsection{ARQUITETURAS}
+    \subsection{Aprendizado em Redes Neurais}
+    \subsection{Arquitetura}
     %Falar o que é e botar uma imagem em todas
-        \subsubsection{FEED-FORWARD}
-        \subsubsection{MULTI LAYER PERCEPTRON}
-        \subsubsection{REDES NEURAIS RECORRENTES}
-        \subsubsection{REDES NEURAIS CONVOLUCIONAIS}
-        \subsubsection{LONG SHORT-TERM MEMORY (LSTM)}
-    
+        \subsubsection{Feed-Forward}
+        \subsubsection{Multi Layer Perceptron}
+        \subsubsection{Redes Neurais Recorrentes}
+        \subsubsection{Redes Neurais Convolucionais}
+        \subsubsection{Long Short-Term Memory (LSTM)}
+
 
 %Talvez por na metodologia
-\section{DADOS METEOROLÓGIOCOS}
+\section{Dados Meteorológicos}
 
     Para a aplicação de modelos de previsão, é essencial dispor de uma quantidade significativa de dados para o 
     treinamento, validação e teste do modelo, bem como para a inferência dessas informações sobre a população como um 
@@ -114,7 +133,7 @@ Para o entendimento e progresso deste trabalho, faz-se necessária a compreensã
     variáveis meteorológicas. 
     
     Esses dados podem ser gerados localmente, por meio de estações meteorológicas convencionais ou automáticas, 
-    ou captados remotamente, utilizando sensores orbitais, radares, entre outros dispositivos (VIANNA et al., 2017). 
+    ou captados remotamente, utilizando sensores orbitais, radares, entre outros dispositivos~\cite{vianna2017}. 
     O Banco de Dados Meteorológicos para Ensino e Pesquisa (BDMEP), em particular, reúne informações meteorológicas 
     diárias provenientes das estações da rede do INMET, seguindo as normas técnicas da Organização Meteorológica 
     Mundial (INMET, s.d.).
