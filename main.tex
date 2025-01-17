@@ -2,7 +2,8 @@
 
 \usepackage{lmodern}                 
 \usepackage[T1]{fontenc}             
-\usepackage[utf8]{inputenc}         
+\usepackage[utf8]{inputenc}    
+\usepackage[alf]{abntex2cite}     
 \usepackage[brazil]{babel}           
 \usepackage{amsmath, amsfonts, amssymb, amsthm} 
 \usepackage{graphicx}                
@@ -28,7 +29,7 @@
     breaklinks=true
 }
 
-\bibliographystyle{abntex2-alf}
+% \bibliographystyle{abntex2-alf}
 
 % Documento
 \begin{document}
@@ -85,7 +86,52 @@
 
     \end{folhaderosto}
 
+    \newpage
+    \begin{center}
+        \begin{center}
+            \ABNTEXchapterfont\bfseries\LARGE UTILIZAÇÃO DE REDES NEURAIS NA ANÁLISE E PREVISÃO DE SÉRIES TEMPORAIS METEOROLÓGICAS EM ITAPETINGA-BA
+        \end{center}
 
+        \vspace{3cm}
+
+        \begin{center}
+            {\ABNTEXchapterfont\large Lucas Silva de Oliveira}
+        \end{center}
+
+        \vspace{4cm}
+    
+        \begin{flushright}
+            \begin{minipage}{8.6cm}
+                Trabalho de Conclusão de Curso apresentado como 
+                requisito parcial para obtenção 
+                do título de Bacharel em Sistemas de Informação.
+            \end{minipage}
+        \end{flushright}
+        
+
+        \vspace{1cm}
+        
+        \begin{center}
+
+            \textit{BANCA EXAMINADORA:}
+            \vspace{2cm}
+
+            \begin{minipage}{12cm}
+                \begin{center}
+                    \rule{10.5cm}{0.5pt} \\ % Linha para o Orientador
+                    Prof(a). Dr(a). Nome do(a) Orientador(a) (Orientador(a)) \\ IFBAIANO \\
+                    \vspace{0.5cm}
+                    \rule{10.5cm}{0.5pt} \\ % Linha para o Avaliador 1
+                    Prof(a). Dr(a). Nome do(a) Avaliador(a) \\ Instituição \\
+                    \vspace{0.5cm}
+                    \rule{10.5cm}{0.5pt} \\ % Linha para o Avaliador 2
+                    Prof(a). Dr(a). Nome do(a) Avaliador(a) \\ Instituição
+                \end{center}
+            \end{minipage}
+        \end{center}
+    \end{center}
+
+    \newpage
     % Dedicatória
     \begin{dedicatoria}
         \vspace*{\fill}
@@ -125,11 +171,9 @@
     \newpage
 
     \tableofcontents
- 
-    % Corpo do Trabalho
 
     \include{conteudo/1-Introducao}
-
+    
     \include{conteudo/2-Referencial}
 
     \include{conteudo/3-Metodologia}

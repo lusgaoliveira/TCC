@@ -47,21 +47,24 @@ aplicações de séries temporais em Meteorologia, redes neurais e séries tempo
 
         %mostrar fórmula
 
+    \subsection{Modelos}
 
 
 \section{Redes Neurais}
 %Falar brevemente
-    O cérebro humano é um computador de grande complexidade, não linear e paralelo, 
-    composto por cerca de 10 bilhões de neurônios, cada um conectado com outros 10 
-    bilhões de neurônios. Em sua composição existe o corpo da célula também chamado de 
-    soma, e canais da saída e entrada (dendritos e axônios) que conectam os neurônios, 
-    dendritos também são chamadas zonas receptivas e axônios de linhas de transmissão. 
-    Cada neurônico recebe informações eletroquimicas de outros neurônios nos dendritos 
-    através dos axônios. Se as somas dessas entradas elétricas for suficientemente forte 
-    para ativar o neurônio, um sinal eletroquímico ao longo do axônio, possuindo a 
-    habilidade de organizar os neurônios, um dos seus componentes integradores, para 
-    assim realizar várias formas de processamento de forma mais rápida que os 
-    computadores digitivas convencionais~\cite{haykin2009neural}.
+    O cérebro humano é um sistema de grande complexidade, não linear e altamente paralelo, composto por cerca de 
+    10 bilhões de neurônios. Cada neurônio está conectado, em média, a outros 10 bilhões de neurônios, formando uma 
+    vasta e sofistiada rede. Na estrutura de um neurônio, destaca-se o corpo celular, também chamado de soma, que é 
+    responsável por integrar os sinais recebidos. Os neurônios possuem canais de entrada, chamados dendritos, que 
+    recebem informações de outros neurônios, e canais de saída, chamados axônios, que transmitem essas informações. 
+    Os dendritos são considerados as "zonas receptivas" do neurônio, enquanto os axônios funcionam como 
+    "linhas de transmissão".
+
+    Os neurônios se comunicam por meio de sinais eletroquímicos. Os dendritos recebem essas informações de outros 
+    neurônios através dos axônios. Quando o conjunto de sinais recebidos é suficientemente forte para ativar o 
+    neurônio, este gera um impulso elétrico que percorre seu axônio. Esse sinal eletroquímico coordena e organiza a 
+    atividade neuronal, permitindo ao cérebro realizar diversas formas de processamento de maneira extremamente 
+    eficiente, muitas vezes mais rápida do que os computadores digitais convencionais~\cite{haykin2009neural}.
 
     A Figura \ref{fig:celula_piramidial} mostra a estrutura do neurônio:
     \begin{figure}[!htb]
@@ -79,6 +82,10 @@ aplicações de séries temporais em Meteorologia, redes neurais e séries tempo
         funcionamento do cérebro humano. Esse interesse levantou debates entre pesquisadores sobre a possível interação 
         entre as ideias de von Neumann e os primórdios das redes neurais. Alguns estudiosos destacam indícios que 
         sugerem a visão de von Neumann sobre as direções futuras do desenvolvimento dos computadores~\cite{Fausett1994}.
+
+        Neste capítulo, serão destacados alguns marcos significativos que tiveram um papel fundamental no avanço e
+        desenvolvimento da área de redes neurais.
+
 
         \subsubsection{Perceptrons}
             
@@ -101,10 +108,11 @@ aplicações de séries temporais em Meteorologia, redes neurais e séries tempo
             ativação que realiza uma função linear. Esse nó somador (o neurônio) calcula uma combinação linear das 
             entradas aplicadas às suas sinapses, além de incorporar um viés aplicado externamente que ajusta a posição
             da função de ativação. O resultado dessa soma é passado à função de ativação, que produz uma saída de +1 
-            se a entrada for positiva, ou -1, se for negativa. O perceptron é um classificador binário, pois resolve 
-            apenas problemas de classificação de padrões linearmente separáveis, ou seja, é capaz de lidar 
-            exclusivamente com problemas nos quais duas classes podem ser separadas por uma 
-            linha em um hiperplano~\cite{haykin2009neural}.
+            se a entrada for positiva, ou -1, se for negativa. 
+            
+            O perceptron é um classificador binário, pois resolve apenas problemas de classificação de padrões 
+            linearmente separáveis, ou seja, é capaz de lidar exclusivamente com problemas nos quais duas classes 
+            podem ser separadas por uma linha em um hiperplano~\cite{haykin2009neural}. 
 
 
         \subsubsection{Adaline}
@@ -112,8 +120,9 @@ aplicações de séries temporais em Meteorologia, redes neurais e séries tempo
             Em 1960, Bernard Widrow e Marcian Hoff desenvolveram uma regra de aprendizagem denominada "Regra Delta", 
             também conhecida como Least Mean Squares (LMS) ou método do Gradiente Descendente. Com base nessa regra, 
             foi criada uma rede neural com a mesma estrutura do Perceptron, composta por uma camada de entrada, uma 
-            camada de saída e um único neurônio. A diferença principal residia na regra de aprendizado empregada para 
-            o ajuste dos pesos.
+            camada de saída e um único neurônio. A diferença principal reside na regra de aprendizado empregada para 
+            o ajuste dos pesos, enquanto o Perceptron ajusta os pesos com base na saída binária da rede, essa rede
+            utiliza a diferença entre o previsto e real e aplica o gradiente descendente para reduzir o erro.
             
             A Regra Delta, que tem como finalidade ajustar os pesos do neurônio, busca minimizar a diferença entre a 
             saída desejada e a resposta obtida a partir da combinação linear de todas as amostras. Utilizando a 
@@ -128,13 +137,45 @@ aplicações de séries temporais em Meteorologia, redes neurais e séries tempo
             implementadas em contextos industriais, marcando um avanço significativo na aplicação de tecnologias 
             baseadas em inteligência artificial. Além disso, a regra de aprendizagem Widrow-Hoff para uma rede neural 
             de apenas uma camada foi o percursor da regra de Backpropagation para múltiplas camadas~\cite{Fausett1994,silva2010}
+        
+        
         \subsubsection{Backpropagation}
-      
+            
             FALAR COMO A BACKPROPAGATION FEZ AS REDES NEURAIS EVOLUIREM E VOLTAREM A SEREM ESTUDADAS
+            Os anos 70 foram bastante calmos na área de redes neurais, devido a dificuldade que o perceptron 
+            possuia em resolver alguns problemas simples que não eram linearmente separaveis. Entretanto, graças 
+            criação de um método que propaga informações sobre o erros da saída de volta às camadas ocultas
+
+
+
+
+            O algoritmo de backpropagation ajusta os pesos da rede neural para reduzir o erro entre a saída prevista 
+            e o valor esperado. O erro é calculado e propagado pelas camadas até atingir um nível mínimo aceitável~\cite{marangoni2010}.
+            
+            ~\citeonline{grus2021} apresenta o funcionamento padrão do treinamento de uma rede neural utilizando o algoritmo 
+            de backpropagation como método de ajuste dos pesos. Considera-se que a rede possui \( n\),  os quais são 
+            ajustados de acordo com o seguinte procedimento:
+            \begin{enumerate}
+                \item Realiza-se o feed-forward, em que as entradas são processadas para produzir as saídas de todos os neurônios
+                \item Como o algoritmo é supervisionado, os valores esperados das saídas são conhecidos. Assim, calcula-se uma função de perda, geralmente definida como a soma dos erros quadráticos entre as saídas reais e as esperadas;
+                \item O gradiente dessa função de perda é calculado em relação aos pesos dos neurônios de saída;
+                \item Os gradientes e os erros são propagados para trás com o objetivo de calcular os gradientes associados aos pesos dos neurônios ocultos;
+                \item Atualizam-se os pesos aplicando um passo em direção ao gradiente descendente, controlado por um parâmetro denominado learning rate (taxa de aprendizagem)
+            \end{enumerate}
+            
     \subsection{Componentes das Redes Neurais}
         %
 
     \subsection{Aprendizado em Redes Neurais}
+        \subsubsection{Aprendizado Supervisionado}
+        \subsubsection{Aprendizado Não Supervisionado}
+        \subsubsection{Pre-Processamento dos Dados}
+        \subsubsection{Overfitting e Undefitting}
+        \subsubsection{Validação Cruzada}
+        \subsubsection{Função de ativação}
+        \subsubsection{Métricas de Avaliação}
+        
+            
     \subsection{Arquitetura}
     %Falar o que é e botar uma imagem em todas
         \subsubsection{Feed-Forward}
