@@ -156,25 +156,36 @@ aplicações de séries temporais em Meteorologia, redes neurais e séries tempo
             de backpropagation como método de ajuste dos pesos. Considera-se que a rede possui \( n\),  os quais são 
             ajustados de acordo com o seguinte procedimento:
             \begin{enumerate}
-                \item Realiza-se o feed-forward, em que as entradas são processadas para produzir as saídas de todos os neurônios
+                \item Realiza-se o feed-forward, em que as entradas são processadas para produzir as saídas de todos os neurônios;
                 \item Como o algoritmo é supervisionado, os valores esperados das saídas são conhecidos. Assim, calcula-se uma função de perda, geralmente definida como a soma dos erros quadráticos entre as saídas reais e as esperadas;
                 \item O gradiente dessa função de perda é calculado em relação aos pesos dos neurônios de saída;
                 \item Os gradientes e os erros são propagados para trás com o objetivo de calcular os gradientes associados aos pesos dos neurônios ocultos;
-                \item Atualizam-se os pesos aplicando um passo em direção ao gradiente descendente, controlado por um parâmetro denominado learning rate (taxa de aprendizagem)
+                \item Atualizam-se os pesos aplicando um passo em direção ao gradiente descendente, controlado por um parâmetro denominado learning rate (taxa de aprendizagem).
             \end{enumerate}
             
     \subsection{Componentes das Redes Neurais}
         %
 
     \subsection{Aprendizado em Redes Neurais}
-        \subsubsection{Aprendizado Supervisionado}
+        \subsubsection{Aprendizado Supervisionado}  
+        %Falar de forma breve o que é o aprendizado supervisionado e seus tipos
+
         \subsubsection{Aprendizado Não Supervisionado}
-        \subsubsection{Pre-Processamento dos Dados}
-        \subsubsection{Overfitting e Undefitting}
-        \subsubsection{Validação Cruzada}
-        \subsubsection{Função de ativação}
-        \subsubsection{Métricas de Avaliação}
+        %Falar de forma breve o que é o aprendizado não supervisiona e seus tipos
         
+        \subsubsection{Pre-Processamento dos Dados}
+        %Falar de normalização e padronização
+
+        \subsubsection{Overfitting e Undefitting}
+        %Abordar sobre esses dois problemas, o que são, como surgem, como detectar e como se previnir
+
+        \subsubsection{Validação Cruzada}
+        %Falar o que é, porque foi criada e modo de uso
+        \subsubsection{Função de ativação}
+        %Falar dos tipos diferentes de função de ativação do neurônio
+
+        \subsubsection{Métricas de Avaliação}
+        %Falar rapidamente sobre as métricas mais comuns de avaliação
             
     \subsection{Arquitetura}
     %Falar o que é e botar uma imagem em todas
