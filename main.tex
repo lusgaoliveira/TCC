@@ -10,9 +10,14 @@
 \usepackage{microtype}              
 \usepackage{indentfirst}             
 \usepackage{color}                   
-\usepackage{hyperref}                
+\usepackage{hyperref} 
+\usepackage{fancyhdr}               
 \usepackage[top=3cm,left=3cm,right=2cm,bottom=2cm]{geometry}
 \graphicspath{{figuras/}}
+
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot[C]{\thepage} 
 
 % Configurações de aparência do PDF final
 \hypersetup{
@@ -38,8 +43,8 @@
     \begin{capa}
         \center
         \includegraphics[width=2cm]{template/ifbaiano.png}\\[0.2cm]
-        {\ABNTEXchapterfont\large INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA BAIANO}\\[0.2cm]
-        {\ABNTEXchapterfont\large Bacharelado em Sistemas de Informação} \\[4cm]
+        {\ABNTEXchapterfont\LARGE INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA BAIANO}\\[0.2cm]
+        {\ABNTEXchapterfont\LARGE Bacharelado em Sistemas de Informação} \\[4cm]
 
         {\ABNTEXchapterfont\bfseries\LARGE UTILIZAÇÃO DE REDES NEURAIS NA ANÁLISE E PREVISÃO DE SÉRIES TEMPORAIS METEOROLÓGICAS EM ITAPETINGA-BA}\\[4cm]
 
@@ -170,12 +175,18 @@
 
     \newpage
 
-    \tableofcontents
-    \thispagestyle{empty}
+    \pdfbookmark[0]{Sumário}{toc}
+    \tableofcontents* 
+    \thispagestyle{empty} 
+
+    \setcounter{chapter}{0}
+    \setcounter{page}{0}    
 
     \include{conteudo/1-Introducao}
     
-    \include{conteudo/2-Referencial}
+    
+
+    \include{conteudo/2-Fundamentacao}
 
     \include{conteudo/3-Metodologia}
 
