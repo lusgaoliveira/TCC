@@ -28,10 +28,13 @@ entendimento e progresso deste trabalho.
         T = [t_1, t_2], \quad \{X(t) : t \in T\}
     \end{equation}
         
-
-    
-
     \subsection{Estacionariedade}
+        A estacionariedade refere-se ao comportamento dos valores de uma série temporal ao longo do tempo. Uma série é 
+        classificada como estacionária quando seus dados flutuam de maneira aleatória em torno de uma média fixa, mantendo-se em 
+        um estado de equilíbrio ao longo do período analisado. Contudo, na prática, muitas séries temporais do cotidiano não 
+        apresentam essa característica, exibindo tendências, sazonalidades ou outras formas de variação que indicam a presença de 
+        não estacionariedade~\cite{morettin2018}.
+
     \subsection{Decomposição}
 
         \citeonline{costa2019} destaca que ao iniciar a análise de uma série temporal é de alta valia utilizar de gráficos 
@@ -49,7 +52,6 @@ entendimento e progresso deste trabalho.
         O ruído ($\epsilon_t$) é 
 
         %mostrar fórmulas
-        %falar sobre estacionariedade
 
     \subsection{Modelos}
 
@@ -169,32 +171,92 @@ entendimento e progresso deste trabalho.
             \end{enumerate}
             
     \subsection{Componentes das Redes Neurais}
-        %
+        % \subsubsection{Neurônio}
+        % \subsubsection{Camadas}
+        % \subsubsection{Função de Ativação}
+        % \subsubsection{Função de Perda}
+        % \subsubsection{Algoritmo de Otimização}
+        % \subsubsection{Taxa de Aprendizado}
 
-    \subsection{Aprendizado em Redes Neurais}
-        \subsubsection{Aprendizado Supervisionado}  
+
+    \subsection{Processo de Treinamento}
+        Sistemas de aprendizado de máquina podem ser categorizados de acordo com o tipo de treinamento que
+        eles recebem. O aprendizado supervisionado ocorre quando o modelo é treinado por meio de exemplos explicítos. 
+        Em contrapartida, no aprendizado não supervisionado, não há a definição de exemplos explicítos para orientar o 
+        modelo. Além disso, existem diversas boas práticas para garantir que o modelo consiga realizar um bom aprendizado 
+        e métricas para avalia-lo
+         
+        \subsubsection{Aprendizado Supervisionado e Não Supervisionado}  
         %Falar de forma breve o que é o aprendizado supervisionado e seus tipos
+            No aprendizado supervisionado, o modelo é treinado com pares de dados \((x,y)\), onde \(x\) representa 
+            os dados de entrada e \(y\) o valor esperado (ou rótulo). Durante o treinamento, o modelo compara as 
+            previsões feitas com os valores reais utilizando uma função de perda, que mede o erro. Em seguida, 
+            seus parâmetros são ajustados iterativamente, geralmente por meio de métodos como o gradiente descendente, 
+            para minimizar esse erro e melhorar a precisão das previsões.
+            
+            No aprendizado não supervisionado, o modelo não recebe o par de dados \((x,y)\), mas apenas as entradas 
+            \(x\). A partir disso, ele busca identificar padrões, estruturas ou associações presentes nos dados, 
+            ajustando os pesos de acordo com o objetivo do método utilizado.
 
-        \subsubsection{Aprendizado Não Supervisionado}
-        %Falar de forma breve o que é o aprendizado não supervisiona e seus tipos
         
         \subsubsection{Pre-Processamento dos Dados}
-        %Falar de normalização e padronização
+            Antes de treinar um modelo com algoritmos de aprendizado de máquina, é imprescindível realizar o pré-processamento 
+            dos dados. Esse processo assegura que os dados estejam padronizados, consistentes e adequados, permitindo que os 
+            modelos alcancem um desempenho superior e resultados confiáveis nas métricas de avaliação. Para isso, são utilizadas 
+            técnicas que evitam problemas como dados ausentes, inconsistências, valores conflitantes e incongruentes. Essas 
+            técnicas são geralmente divididas em quatro categorias principais: limpeza, integração, transformação e redução de 
+            dados~\cite{silva2021, oliveira2024}.
+
+            \subsubsubsection{Limpeza de Dados}
+                Um problema comum em conjuntos de dados (\emph{datasets}) é a presença de valores faltantes (ou nulos), que 
+                podem ocorrer devido a diferentes fatores. Esses fatores incluem registros manuais realizados de forma 
+                inadequada, falhas em sistemas de extração, transformação e carregamento de dados (\emph{ETL}) ou até mesmo 
+                problemas em sensores de dispositivos autônomos. A presença de valores faltantes compromete tanto a qualidade 
+                dos dados quanto o desempenho do treinamento de modelos de \emph{machine learning}, caso não seja tratada 
+                adequadamente.~\citeonline{sivakumar2017} apresentam algumas abordagens eficazes para lidar com essa 
+                problemática, como:
+
+                \begin{itemize}
+                    \item Exclusão de linhas do \emph{dataset} que contenham valores faltantes.
+                    \item Preenchimento dos valores ausentes utilizando métricas estatísticas, como a média ou mediana, 
+                    para gerar estimativas aproximadas que mantenham a coerência do conjunto de dados.
+                \end{itemize}
+                
+            \subsubsubsection{Integração de Dados}
+                É o processo de combinar dados provenientes de diversas fontes, ecossistemas e tecnologias, de maneira adequada 
+                e coerente. Durante esse processo de integração, podem surgir problemas, como inconsistências nos dados e 
+                redundâncias no conjunto de dados gerado~\cite{sivakumar2017, silva2021, oliveira2024}
+            \subsubsubsection{Transformação de Dados}
+            Nesse estágio, os dados são transformados em formatos adequados para utilização no modelo. 
+            \citeonline{sivakumar2017} e \citeonline{oliveira2024} definem algumas atividades executadas nesta etapa:
+
+            \begin{itemize} 
+                \item Uso de normalização para ajustar os valores dos dados a uma escala comum, permitindo fácil comparação entre 
+                diferentes atributos. 
+                \item Eliminação de ruídos com técnicas de suavização. 
+                \item Aplicação de técnicas de agregação para resumir dados complexos e detalhados. 
+                \item Generalização de valores específicos em categorias mais amplas, como, por exemplo, a generalização de 
+                faixas etárias. 
+            \end{itemize}
+
+            \subsubsubsection{Redução de Dados}
+            \begin{itemize}
+                \item Redução de dimensionalidade do \emph{dataset}, removendo atributos que não melhoram a perfomance do modelo.
+                \item Utilização de operações de agregação de dados para resumo de informações.
+                \item Utilização de técnicas de \emph{encoding} para compactação de dados.
+            \end{itemize}
 
         \subsubsection{Overfitting e Undefitting}
         %Abordar sobre esses dois problemas, o que são, como surgem, como detectar e como se previnir
 
         \subsubsection{Validação Cruzada}
         %Falar o que é, porque foi criada e modo de uso
-        \subsubsection{Função de ativação}
-        %Falar dos tipos diferentes de função de ativação do neurônio
 
         \subsubsection{Métricas de Avaliação}
         %Falar rapidamente sobre as métricas mais comuns de avaliação
             
     \subsection{Arquitetura}
     %Falar o que é e botar uma imagem em todas
-        \subsubsection{Feed-Forward}
         \subsubsection{Multi Layer Perceptron}
         \subsubsection{Redes Neurais Recorrentes}
         \subsubsection{Redes Neurais Convolucionais}
