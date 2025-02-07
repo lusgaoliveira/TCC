@@ -122,53 +122,28 @@ entendimento e progresso deste trabalho.
             podem ser separadas por uma linha em um hiperplano~\cite{haykin2009neural}. 
 
 
-        \subsubsection{Adaline}
+        % \subsubsection{Adaline}
 
-            Em 1960, Bernard Widrow e Marcian Hoff desenvolveram uma regra de aprendizagem denominada "Regra Delta", 
-            também conhecida como Least Mean Squares (LMS) ou método do Gradiente Descendente. Com base nessa regra, 
-            foi criada uma rede neural com a mesma estrutura do Perceptron, composta por uma camada de entrada, uma 
-            camada de saída e um único neurônio. A diferença principal reside na regra de aprendizado empregada para 
-            o ajuste dos pesos, enquanto o Perceptron ajusta os pesos com base na saída binária da rede, essa rede
-            utiliza a diferença entre o previsto e real e aplica o gradiente descendente para reduzir o erro.
+        %     Em 1960, Bernard Widrow e Marcian Hoff desenvolveram uma regra de aprendizagem denominada "Regra Delta", 
+        %     também conhecida como Least Mean Squares (LMS) ou método do Gradiente Descendente. Com base nessa regra, 
+        %     foi criada uma rede neural com a mesma estrutura do Perceptron, composta por uma camada de entrada, uma 
+        %     camada de saída e um único neurônio. A diferença principal reside na regra de aprendizado empregada para 
+        %     o ajuste dos pesos, enquanto o Perceptron ajusta os pesos com base na saída binária da rede, essa rede
+        %     utiliza a diferença entre o previsto e real e aplica o gradiente descendente para reduzir o erro.
             
-            A Regra Delta, que tem como finalidade ajustar os pesos do neurônio, busca minimizar a diferença entre a 
-            saída desejada e a resposta obtida a partir da combinação linear de todas as amostras. Utilizando a 
-            minimização do erro quadrático médio entre os valores previstos e reais, o método opera dentro de um 
-            contexto de aprendizagem supervisionada, onde há uma saída esperada previamente definida. O algoritmo 
-            ajusta iterativamente o vetor de pesos \( w\) atribuído à rede, com o objetivo de determinar um 
-            \( w^{*} \) ótimo tal que o erro quadrático \({E(w{*})}\), calculado sobre todo o conjunto de amostras, 
-            seja minimizado.
+        %     A Regra Delta, que tem como finalidade ajustar os pesos do neurônio, busca minimizar a diferença entre a 
+        %     saída desejada e a resposta obtida a partir da combinação linear de todas as amostras. Utilizando a 
+        %     minimização do erro quadrático médio entre os valores previstos e reais, o método opera dentro de um 
+        %     contexto de aprendizagem supervisionada, onde há uma saída esperada previamente definida. O algoritmo 
+        %     ajusta iterativamente o vetor de pesos \( w\) atribuído à rede, com o objetivo de determinar um 
+        %     \( w^{*} \) ótimo tal que o erro quadrático \({E(w{*})}\), calculado sobre todo o conjunto de amostras, 
+        %     seja minimizado.
 
-            Essa rede neural foi projetada para aplicações em sistemas de chaveamento de circuitos telefônicos e 
-            ficou conhecida como Adaline (Adaptive Linear Neuron). A Adaline foi uma das primeiras redes neurais 
-            implementadas em contextos industriais, marcando um avanço significativo na aplicação de tecnologias 
-            baseadas em inteligência artificial. Além disso, a regra de aprendizagem Widrow-Hoff para uma rede neural 
-            de apenas uma camada foi o percursor da regra de Backpropagation para múltiplas camadas~\cite{Fausett1994,silva2010}
-        
-        
-        \subsubsection{Backpropagation}
-            
-            FALAR COMO A BACKPROPAGATION FEZ AS REDES NEURAIS EVOLUIREM E VOLTAREM A SEREM ESTUDADAS
-            Os anos 70 foram bastante calmos na área de redes neurais, devido a dificuldade que o perceptron 
-            possuia em resolver alguns problemas simples que não eram linearmente separaveis. Entretanto, graças 
-            criação de um método que propaga informações sobre o erros da saída de volta às camadas ocultas
-
-
-
-
-            O algoritmo de backpropagation ajusta os pesos da rede neural para reduzir o erro entre a saída prevista 
-            e o valor esperado. O erro é calculado e propagado pelas camadas até atingir um nível mínimo aceitável~\cite{marangoni2010}.
-            
-            ~\citeonline{grus2021} apresenta o funcionamento padrão do treinamento de uma rede neural utilizando o algoritmo 
-            de backpropagation como método de ajuste dos pesos. Considera-se que a rede possui \( n\),  os quais são 
-            ajustados de acordo com o seguinte procedimento:
-            \begin{enumerate}
-                \item Realiza-se o feed-forward, em que as entradas são processadas para produzir as saídas de todos os neurônios;
-                \item Como o algoritmo é supervisionado, os valores esperados das saídas são conhecidos. Assim, calcula-se uma função de perda, geralmente definida como a soma dos erros quadráticos entre as saídas reais e as esperadas;
-                \item O gradiente dessa função de perda é calculado em relação aos pesos dos neurônios de saída;
-                \item Os gradientes e os erros são propagados para trás com o objetivo de calcular os gradientes associados aos pesos dos neurônios ocultos;
-                \item Atualizam-se os pesos aplicando um passo em direção ao gradiente descendente, controlado por um parâmetro denominado learning rate (taxa de aprendizagem).
-            \end{enumerate}
+        %     Essa rede neural foi projetada para aplicações em sistemas de chaveamento de circuitos telefônicos e 
+        %     ficou conhecida como Adaline (Adaptive Linear Neuron). A Adaline foi uma das primeiras redes neurais 
+        %     implementadas em contextos industriais, marcando um avanço significativo na aplicação de tecnologias 
+        %     baseadas em inteligência artificial. Além disso, a regra de aprendizagem Widrow-Hoff para uma rede neural 
+        %     de apenas uma camada foi o percursor da regra de Backpropagation para múltiplas camadas~\cite{Fausett1994,silva2010}
             
     \subsection{Componentes das Redes Neurais}
         % \subsubsection{Neurônio}
@@ -226,38 +201,86 @@ entendimento e progresso deste trabalho.
                 É o processo de combinar dados provenientes de diversas fontes, ecossistemas e tecnologias, de maneira adequada 
                 e coerente. Durante esse processo de integração, podem surgir problemas, como inconsistências nos dados e 
                 redundâncias no conjunto de dados gerado~\cite{sivakumar2017, silva2021, oliveira2024}
-            \subsubsubsection{Transformação de Dados}
-            Nesse estágio, os dados são transformados em formatos adequados para utilização no modelo. 
-            \citeonline{sivakumar2017} e \citeonline{oliveira2024} definem algumas atividades executadas nesta etapa:
 
-            \begin{itemize} 
-                \item Uso de normalização para ajustar os valores dos dados a uma escala comum, permitindo fácil comparação entre 
-                diferentes atributos. 
-                \item Eliminação de ruídos com técnicas de suavização. 
-                \item Aplicação de técnicas de agregação para resumir dados complexos e detalhados. 
-                \item Generalização de valores específicos em categorias mais amplas, como, por exemplo, a generalização de 
-                faixas etárias. 
-            \end{itemize}
+            \subsubsubsection{Transformação de Dados}
+                Nesse estágio, os dados são transformados em formatos adequados para utilização no modelo. 
+                \citeonline{sivakumar2017} e \citeonline{oliveira2024} definem algumas atividades executadas nesta etapa:
+
+                \begin{itemize} 
+                    \item Uso de normalização para ajustar os valores dos dados a uma escala comum, permitindo fácil comparação entre 
+                    diferentes atributos. 
+                    \item Eliminação de ruídos com técnicas de suavização. 
+                    \item Aplicação de técnicas de agregação para resumir dados complexos e detalhados. 
+                    \item Generalização de valores específicos em categorias mais amplas, como, por exemplo, a generalização de 
+                    faixas etárias. 
+                \end{itemize}
 
             \subsubsubsection{Redução de Dados}
-            \begin{itemize}
-                \item Redução de dimensionalidade do \emph{dataset}, removendo atributos que não melhoram a perfomance do modelo.
-                \item Utilização de operações de agregação de dados para resumo de informações.
-                \item Utilização de técnicas de \emph{encoding} para compactação de dados.
-            \end{itemize}
+                Nessa etapa, são utilizadas metodos para reduzir o volume de dados que serão analisados, visando maior velocidade
+                de processamento e melhora na eficiência do processo, mas sem comprometer a qualidade e integridade dos dados 
+                originais.~\citeonline{sivakumar2017} indicam algumas estrategias, sendo elas:
+                \begin{itemize}
+                    \item Redução de dimensionalidade do \emph{dataset}, removendo atributos que não melhoram a perfomance do 
+                    modelo.
+                    \item Utilização de operações de agregação de dados para resumo de informações.
+                    \item Utilização de técnicas de \emph{encoding} para compactação de dados.
+                \end{itemize}
 
         \subsubsection{Overfitting e Undefitting}
         %Abordar sobre esses dois problemas, o que são, como surgem, como detectar e como se previnir
 
-        \subsubsection{Validação Cruzada}
+        \subsubsection{Técnicas de Validação}
         %Falar o que é, porque foi criada e modo de uso
+        \subsubsubsection{Hold-Out}
+        \subsubsubsection{K-Fold}
+        \subsubsubsection{Leave-One-Out}
+        \subsubsubsection{Bootstrap}
 
         \subsubsection{Métricas de Avaliação}
-        %Falar rapidamente sobre as métricas mais comuns de avaliação
+            Vide que a utilização de modelos de \emph{machine learning} é com o foco de predizer determinados eventos atráves
+            de métodos estáticos e probabilisticos. A exatidão da previsão é o fator crucial em avaliar a qualidade de um modelo.
+            \citeonline{sousa2011} apresenta a Tabela~\ref{fig:tabela-metricas} com as métricas mais comuns para avaliar as previsões
+            dos modelos.
+            
+            \begin{center}
+                \begin{table}[h!]
+                    \centering
+                    \caption{Cálculo de erros}
+                    \label{tab:calculo_erros}
+                    \begin{tabular}{ll}
+                        \toprule
+                        \textbf{Designação} & \textbf{Fórmula} \\ 
+                        \midrule
+                        Erro Absoluto Médio (MAE) & $\frac{1}{n} \sum_{t=1}^{n} |e_t|$ \\[8pt]
+                        Erro Quadrático Médio (MSE) & $\frac{1}{n} \sum_{t=1}^{n} (e_t)^2$ \\[8pt]
+                        Raiz do Erro Quadrático Médio (RMSE) & $\sqrt{\frac{1}{n} \sum_{t=1}^{n} (e_t)^2}$ \\[8pt]
+                        Erro Percentual Absoluto Médio (MAPE) & $\frac{1}{n} \sum_{t=1}^{n} \left(\frac{|e_t|}{|y_t|}\right) 100$ \\ 
+                        \bottomrule
+                    \end{tabular}
+                    
+                    \bigskip
+                    \small \textbf{Fonte:} Sousa (2011)
+                    \label{fig:tabela-metricas}
+                \end{table}
+            \end{center}
+            
             
     \subsection{Arquitetura}
     %Falar o que é e botar uma imagem em todas
-        \subsubsection{Multi Layer Perceptron}
+        \subsubsection{Multi Layer Perceptron}            
+            O algoritmo de backpropagation ajusta os pesos da rede neural para reduzir o erro entre a saída prevista 
+            e o valor esperado. O erro é calculado e propagado pelas camadas até atingir um nível mínimo aceitável~\cite{marangoni2010}.
+            
+            \citeonline{grus2021} apresenta o funcionamento padrão do treinamento de uma rede neural utilizando o algoritmo 
+            de backpropagation como método de ajuste dos pesos. Considera-se que a rede possui \( n\),  os quais são 
+            ajustados de acordo com o seguinte procedimento:
+            \begin{enumerate}
+                \item Realiza-se o feed-forward, em que as entradas são processadas para produzir as saídas de todos os neurônios;
+                \item Como o algoritmo é supervisionado, os valores esperados das saídas são conhecidos. Assim, calcula-se uma função de perda, geralmente definida como a soma dos erros quadráticos entre as saídas reais e as esperadas;
+                \item O gradiente dessa função de perda é calculado em relação aos pesos dos neurônios de saída;
+                \item Os gradientes e os erros são propagados para trás com o objetivo de calcular os gradientes associados aos pesos dos neurônios ocultos;
+                \item Atualizam-se os pesos aplicando um passo em direção ao gradiente descendente, controlado por um parâmetro denominado learning rate (taxa de aprendizagem).
+            \end{enumerate}
         \subsubsection{Redes Neurais Recorrentes}
         \subsubsection{Redes Neurais Convolucionais}
         \subsubsection{Long Short-Term Memory (LSTM)}
