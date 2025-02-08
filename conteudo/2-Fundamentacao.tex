@@ -2,7 +2,6 @@
 Neste capítulo, são apresentados os principais conceitos e fundamentos necessários para a compreensão, 
 entendimento e progresso deste trabalho.
 
-
 \section{Séries Temporais}
     Muitas pessoas, em algum momento, já imaginaram como seria prever o futuro e ter acesso a informações sobre eventos 
     ou situações de suas vidas. Essa curiosidade reflete um desejo universal, mas também uma necessidade presente em 
@@ -54,7 +53,9 @@ entendimento e progresso deste trabalho.
         %mostrar fórmulas
 
     \subsection{Modelos}
-
+        \subsubsection{ARMA}
+        \subsubsection{ARIMA}
+        \subsubsection{SARIMA}
 
 \section{Redes Neurais}
 %Falar brevemente
@@ -92,7 +93,6 @@ entendimento e progresso deste trabalho.
 
         Neste capítulo, serão destacados alguns marcos significativos que tiveram um papel fundamental no avanço e
         desenvolvimento da área de redes neurais.
-
 
         \subsubsection{Perceptrons}
             
@@ -200,11 +200,12 @@ entendimento e progresso deste trabalho.
             \subsubsubsection{Integração de Dados}
                 É o processo de combinar dados provenientes de diversas fontes, ecossistemas e tecnologias, de maneira adequada 
                 e coerente. Durante esse processo de integração, podem surgir problemas, como inconsistências nos dados e 
-                redundâncias no conjunto de dados gerado~\cite{sivakumar2017, silva2021, oliveira2024}
+                redundâncias no conjunto de dados gerado~\cite{sivakumar2017, silva2021, oliveira2024}.
 
             \subsubsubsection{Transformação de Dados}
                 Nesse estágio, os dados são transformados em formatos adequados para utilização no modelo. 
-                \citeonline{sivakumar2017} e \citeonline{oliveira2024} definem algumas atividades executadas nesta etapa:
+                \citeonline{sivakumar2017} e \citeonline{oliveira2024} definem algumas atividades executadas nesta 
+                etapa:
 
                 \begin{itemize} 
                     \item Uso de normalização para ajustar os valores dos dados a uma escala comum, permitindo fácil comparação entre 
@@ -227,7 +228,24 @@ entendimento e progresso deste trabalho.
                 \end{itemize}
 
         \subsubsection{Overfitting e Undefitting}
-        %Abordar sobre esses dois problemas, o que são, como surgem, como detectar e como se previnir
+            Ao construir modelos de redes neurais, diversos desafios podem surgir, sendo dois dos mais comuns o 
+            \emph{Overfitting} e o \emph{Underfitting}. O \emph{Overfitting} ocorre quando o modelo aprende tão 
+            bem os padrões dos dados de treinamento que sua capacidade de generalização para novos dados é 
+            comprometida. Isso acontece porque o modelo não apenas captura as características relevantes dos dados, 
+            mas também absorve ruídos e padrões específicos do conjunto de treinamento~\cite{montesinos2022}. 
+            Como consequência, ao ser exposto a novos exemplos, seja do conjunto de teste ou de outros conjuntos de 
+            dados inéditos, o modelo tende a aplicar regras memorizadas, em vez de identificar padrões generalizáveis. 
+            Isso compromete sua capacidade de inferir corretamente a partir de dados não vistos, resultando em um 
+            desempenho insatisfatório.
+
+            Por outro lado, o \emph{Underfitting} ocorre quando o modelo é excessivamente simples, muitas vezes 
+            devido à utilização de poucas variáveis de entrada. Isso impede que o modelo represente adequadamente 
+            os padrões predominantes no \emph{dataset} e capture as características essenciais das amostras, 
+            resultando em um desempenho insatisfatório já durante o treinamento. Além disso, esse problema também 
+            pode surgir quando o conjunto de dados de treinamento é muito pequeno ou pouco representativo da 
+            população, comprometendo ainda mais a capacidade de aprendizagem do modelo~\cite{montesinos2022}.
+            
+        
 
         \subsubsection{Técnicas de Validação}
         %Falar o que é, porque foi criada e modo de uso
@@ -267,7 +285,8 @@ entendimento e progresso deste trabalho.
             
     \subsection{Arquitetura}
     %Falar o que é e botar uma imagem em todas
-        \subsubsection{Multi Layer Perceptron}            
+        \subsubsection{Multi Layer Perceptron}         
+            %Colcar uma imagem do mlp detalhada, mostrando os pesos sinapticos, a função de ativação e a backpropagation em ação
             O algoritmo de backpropagation ajusta os pesos da rede neural para reduzir o erro entre a saída prevista 
             e o valor esperado. O erro é calculado e propagado pelas camadas até atingir um nível mínimo aceitável~\cite{marangoni2010}.
             
@@ -282,5 +301,8 @@ entendimento e progresso deste trabalho.
                 \item Atualizam-se os pesos aplicando um passo em direção ao gradiente descendente, controlado por um parâmetro denominado learning rate (taxa de aprendizagem).
             \end{enumerate}
         \subsubsection{Redes Neurais Recorrentes}
+            %Colocar uma imagem de uma RNR, mostrando tudo, detalhando a rede e falar da matemática especifica sobre comoo ela salva o conteudo da camada anterior
         \subsubsection{Redes Neurais Convolucionais}
+            %Imagem da arquitetura da rede, como ela opera, o que é a operação de convulação e os outros hiperparametros
         \subsubsection{Long Short-Term Memory (LSTM)}
+            %Imagem do LSTM, detalhamento da rede, hiperparametros, como ela funciona e difereça entre ela e a RNC
