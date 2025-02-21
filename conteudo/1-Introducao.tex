@@ -3,19 +3,18 @@
 Aqui é onde ficara a introdução da problemática
 
 \section{OBJETIVOS}
-    O presente projeto tem como objetivo utilizar redes neurais artificiais para analisar e prever 
-    variações meteorológicas no município de Itapetinga-BA ao longo do tempo. A pesquisa busca 
-    identificar padrões sazonais, tendências climáticas de longo prazo e possíveis anomalias, 
-    contribuindo para o planejamento urbano, agrícola e ambiental da região.
+    Analisar e prever variações da temperatura média no município de Itapetinga-BA ao longo do tempo
+    utilizando redes neurais artificiais.
 
+\section{OBJETIVOS ESPECÍFICOS}
     \begin{itemize}
         %\setlength{\itemsep}{1em}
-        \item Analisar séries temporais de temperatura, precipitação e outros parâmetros climáticos 
-        em Itapetinga-BA, aplicando diferentes arquiteturas de redes neurais.
-        \item Identificar tendências de aquecimento, variações na distribuição de chuvas e outros 
-        impactos ambientais, utilizando modelos de previsão baseados em aprendizado profundo.
-        \item Comparar as previsões geradas pelos modelos com os dados históricos, a fim de 
-        detectar anomalias e avaliar possíveis mudanças climáticas na região.
+        \item Analisar séries temporais de temperatura média em Itapetinga-BA, utilizando redes neurais 
+        do tipo MLP.
+        \item Identificar tendências de aquecimento e outros impactos ambientais, empregando um modelo 
+        de previsão baseado em aprendizado profundo.
+        \item Avaliar o desempenho do modelo MLP considerando diferentes configurações, como número de 
+        camadas ocultas, neurônios por camada e funções de ativação.
     \end{itemize}
 
 \section{JUSTIFICATIVA}
@@ -43,17 +42,17 @@ Aqui é onde ficara a introdução da problemática
     global registrada anteriormente. Além disso, estima-se que 23\% das emissões antrópicas de gases de efeito estufa 
     sejam provenientes de atividades relacionadas à agricultura, silvicultura e outras práticas agrícolas.
 
-    No Brasil, em 2019, logo após o início do mandato do governo eleito no ano anterior, as invasões às terras 
+    No Brasil, em 2019, logo após a transição para a nova gestão federal, as invasões às terras 
     indígenas por grupos ilegais, como garimpeiros, foram retomadas. Como resultado, a taxa de desmatamento em 
     junho daquele ano já apresentava um aumento alarmante de 60\% em relação ao mesmo mês do ano anterior. 
     Além disso, houve uma intensificação de atividades ilícitas, como a grilagem de terras, mineração clandestina 
     e exploração madeireira na Amazônia~\cite{barretto2020}.
 
-    \citeonline{barretto2020} afirma que esse aumento foi impulsionado pelos questionamentos levantados pelo então 
-    presidente da República, Jair Messias Bolsonaro, que colocava em dúvida a veracidade das informações fornecidas 
-    por órgãos públicos responsáveis pelo monitoramento ambiental. Além disso, suas declarações sobre a desarticulação do sistema 
-    de regulação ambiental reforçaram, entre seus apoiadores, a percepção de que havia uma espécie de "liberação total". Isso
-    resultou na intensificação de práticas prejudiciais ao meio ambiente, à saúde pública e ao tecido social.
+    \citeonline{barretto2020} afirma que esse aumento foi impulsionado por questionamentos feitos pelas autoridades governamentais 
+    naquele momento, que duvidavam da veracidade das informações fornecidas pelos órgãos responsáveis pelo monitoramento ambiental. 
+    Além disso, declarações sobre a possível flexibilização da regulamentação ambiental reforçaram, entre certos grupos, a percepção 
+    de uma "liberação total". Isso resultou na intensificação de práticas prejudiciais ao meio ambiente, à saúde pública e ao tecido 
+    social.
 
     Segundo dados do MapBiomas, o Brasil já havia perdido cerca de 20\% de suas áreas naturais até 1985. Entre 
     1985 e 2023, essa perda se intensificou, aumentando em mais 13\%, atingindo um total de 33\% do território 
@@ -69,7 +68,7 @@ Aqui é onde ficara a introdução da problemática
     Nesse contexto, destacam-se os modelos de \emph{machine learning}, que, ao utilizar dados históricos meteorológicos, podem 
     realizar predições mais assertivas e robustas.
     
-    Nesse sentido, este trabalho tem como foco analisar as mudanças climáticas no município de Itapetinga-BA, 
+    Nesse sentido, este trabalho tem como foco analisar as mudanças na temperatura média no município de Itapetinga-BA, 
     cidade historicamente conhecida como a 'Capital da Pecuária'. Além de contar com um setor industrial 
     significativo, Itapetinga abriga um campus avançado da Universidade Estadual do Sudoeste da Bahia e um campus 
     do Instituto Federal Baiano, consolidando-se como um importante polo educacional e econômico na região.
@@ -78,7 +77,7 @@ Aqui é onde ficara a introdução da problemática
 %Falar sobre como se dará os capítulos, quais são e o que cada um irá abordar.
     Este trabalho está dividido da seguinte forma: No capítulo 2, é apresentado uma visão geral dos conceitos teóricos que 
     fundamentam este projeto, como séries temporais, suas características e modelos de previsão. Além disso, é introduzido o 
-    conceito de redes neurais, abordando seus componentes, aprendizado, métricas e arquiteturas mais comuns. O capítulo 3 
+    conceito de redes neurais, abordando seus componentes, aprendizado, métricas e a arquitetura utilizada neste trabalho. O capítulo 3 
     detalha os métodos e técnicas utilizados na pesquisa. No capítulo 4, são mostrados os resultados obtidos. Por fim, no 
     capítulo 5, são apresentamos as considerações finais, destacando as principais contribuições do trabalho e propondo direções 
     para futuras pesquisas.

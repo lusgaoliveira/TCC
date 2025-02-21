@@ -12,7 +12,7 @@ entendimento e progresso deste trabalho.
     também desenvolver e ajustar modelos estatísticos capazes de explicar ou prever o comportamento dos dados 
     observados.
     
-    De acordo com~\cite{brockwell2002}, séries temporais podem ser classificadas 
+    De acordo com~\citeonline{brockwell2002}, séries temporais podem ser classificadas 
     discretas e continuas, uma série temporal é discreta quando o conjunto \( t_0 \) de tempos em que as observações 
     são feitas é um conjunto discreto, como o caso de observações que são realizadas em um determinado intervalo de 
     tempo fixo. Sendo representada por:
@@ -21,8 +21,7 @@ entendimento e progresso deste trabalho.
     \end{equation}
     
     
-    E seríes temporais continuas quando suas observações são obtidas continualmente 
-    no tempo. Sendo expressa por: 
+    E seríes temporais continuas quando suas observações são obtidas continuamente no tempo. Sendo expressa por: 
     \begin{equation}
         T = [t_1, t_2], \quad \{X(t) : t \in T\}
     \end{equation}
@@ -34,23 +33,32 @@ entendimento e progresso deste trabalho.
         apresentam essa característica, exibindo tendências, sazonalidades ou outras formas de variação que indicam a presença de 
         não estacionariedade~\cite{morettin2018}.
 
+    \subsection{Teste de Estacionariedade}
+
     \subsection{Decomposição}
 
         \citeonline{costa2019} destaca que ao iniciar a análise de uma série temporal é de alta valia utilizar de gráficos 
         criados sequencialmente no tempo, visto que isso pode revelar determinados padrões de comportamento e algumas 
         características que podem estar presentes nos dados, como tendência, sazonalidade, ciclidade e ruído, também 
         conhecido como erro aleatório. 
+        
+        A tendência ($\mu_t$) representa o padrão de variação de uma grandeza ao longo do tempo. Em termos gerais, ela indica se 
+        uma série temporal segue um crescimento ou um declínio de forma consistente. Séries temporais que exibem esse comportamento 
+        são classificadas como não estacionárias.
 
-        A tendência ($\mu_t$) apresenta um padrão de comportamento de grandezas em relação à variável tempo. De forma
-        geral, elas revelam umc
         
-        A ciclidade ($\psi_t$) pode ser \\
+        A ciclicidade ($\psi_t$) refere-se a variações nos dados que ocorrem em intervalos regulares, com uma duração superior a um 
+        ano. Esses ciclos podem estar associados a fatores econômicos, políticos ou sociais, manifestando-se de forma recorrente ao 
+        longo do tempo.     
         
-        A sazonalidade ($\gamma_t$) pode ser \\
+        A sazonalidade ($\gamma_t$) é uma variação periódica que se repete em intervalos regulares, mantendo a mesma frequência e 
+        intensidade, ocorrendo em um intervalo de tempo menor que um ano. Esse comportamento pode ser observado em 
+        vendas durante datas comemorativas anuais, como Páscoa, Natal e São João, além de em padrões climáticos.
         
-        O ruído ($\epsilon_t$) é 
+        O ruído ($\epsilon_t$) representa a variabilidade imprevisível em uma série temporal, correspondendo a flutuações que não 
+        podem ser explicadas por outros componentes. Além disso, ele atua como uma fonte de erro nas previsões, afetando a precisão 
+        dos modelos.
 
-        %mostrar fórmulas
 
     \subsection{Modelos}
         \subsubsection{ARMA}
@@ -59,67 +67,96 @@ entendimento e progresso deste trabalho.
 
 \section{Redes Neurais}
 %Falar brevemente
-    O cérebro humano é um sistema de grande complexidade, não linear e altamente paralelo, composto por cerca de 
-    10 bilhões de neurônios. Cada neurônio está conectado, em média, a outros 10 bilhões de neurônios, formando uma 
-    vasta e sofistiada rede. Na estrutura de um neurônio, destaca-se o corpo celular, também chamado de soma, que é 
-    responsável por integrar os sinais recebidos. Os neurônios possuem canais de entrada, chamados dendritos, que 
-    recebem informações de outros neurônios, e canais de saída, chamados axônios, que transmitem essas informações. 
-    Os dendritos são considerados as "zonas receptivas" do neurônio, enquanto os axônios funcionam como 
-    "linhas de transmissão".
+    Com o avanço dos estudos sobre o funcionamento do cerebro humano. Analisando o cerebro, percebeu-se a 
+    constituição complexa, não linear e paralela dele, sendo composto por 10 bilhos de neurônios.
+    Cada neurônio conectado, em média, a outros 10 bilhões de neurônios, formando uma 
+    vasta e sofistiada rede~\cite{haykin2009neural}.
 
-    Os neurônios se comunicam por meio de sinais eletroquímicos. Os dendritos recebem essas informações de outros 
-    neurônios através dos axônios. Quando o conjunto de sinais recebidos é suficientemente forte para ativar o 
-    neurônio, este gera um impulso elétrico que percorre seu axônio. Esse sinal eletroquímico coordena e organiza a 
-    atividade neuronal, permitindo ao cérebro realizar diversas formas de processamento de maneira extremamente 
-    eficiente, muitas vezes mais rápida do que os computadores digitais convencionais~\cite{haykin2009neural}.
-
-    A Figura \ref{fig:celula_piramidial} mostra a estrutura do neurônio:
+    Em uma rede neural, a comunicação é realizada através de sinais eletroquímicos, e esses sinais são transmitidos 
+    e processados atráves dos componentes presentes em sua estrutura. Os componentes presentes na estrutura de um neurônio 
+    são exibidos na Figura \ref{fig:neuronio_biologico}:
     \begin{figure}[!htb]
         \centering
-        \caption{Célula piramidial.}
+        \caption{Neurônio Biológico.}
         \includegraphics[scale=0.5]{celula-piramidial.png}\\
         {\footnotesize Fonte: The University Of Queensland.}\
-        \label{fig:celula_piramidial}
+        \label{fig:neuronio_biologico}
     \end{figure}
     
-    Ao entender de forma simples o poder de processamento que o ce
-    \subsection{Histórico}
-        As redes neurais são frequentemente consideradas um complemento à computação tradicional. Curiosamente, 
-        John von Neumann, amplamente reconhecido como o pai da computação moderna devido à sua proposta da arquitetura 
-        que possibilitou a criação do computador de programa armazenado, demonstrava grande interesse em modelar o 
-        funcionamento do cérebro humano. Esse interesse levantou debates entre pesquisadores sobre a possível interação 
-        entre as ideias de von Neumann e os primórdios das redes neurais. Alguns estudiosos destacam indícios que 
-        sugerem a visão de von Neumann sobre as direções futuras do desenvolvimento dos computadores~\cite{Fausett1994}.
+    \begin{itemize}
+        \item \textbf{Corpo Celular ou Soma: }responsável por integrar os sinais recebidos de outros neurônios;
+        \item \textbf{Dendritos: }responsáveis por receber informações transmitidas por outros neurônios. 
+        São consideradas as zonas receptivas;
+        \item \textbf{Axônio: }responsável por transmitir as informações para outros neurônio também chamadoo de linha de 
+        transmissão;
+    \end{itemize}
 
-        Neste capítulo, serão destacados alguns marcos significativos que tiveram um papel fundamental no avanço e
-        desenvolvimento da área de redes neurais.
+    Quando o conjunto de sinais recebidos é suficientemente forte para ativar o neurônio, este gera um impulso elétrico 
+    que percorre seu axônio. Esse sinal eletroquímico coordena e organiza a atividade neuronal, permitindo ao cérebro realizar 
+    diversas formas de processamento de maneira extremamente eficiente, muitas vezes mais rápida do que os computadores digitais 
+    convencionais~\cite{haykin2009neural}. Ao entender de que forma o cerebro humano processa informações, cientistas buscaram 
+    reproduzir seu funcionamento de forma artificial.
+    
+    Com isso, surgiram as Redes Neurais Artificiais (RNA's), que tenta mimetizar o sistema nervoso humano, RNA's são capazes de
+    assimilar e reter conhecimento, possuíndo um alto grau de paralelsimo e extremamente conectada. As RNA's são utilizadas para
+    desempenhar a mesma função após o treinamento. Sendo seu elemento constituinte chamado de neurônio artificial~\cite{ulinick2019}.
 
-        \subsubsection{Perceptrons}
+    De acordo com \citeonline{haykin2009neural}, um neurônio é uma unidade de processamento de informação que é fundamental para a operação de um
+    rede neural. Na Figura \ref{fig:fluxo-perceptron} é ilustrado os componentes básicos da arquitetura mais simples de uma rede neural.
+    \begin{figure}[!htb]
+        \centering
+        \caption{Neurônio Artificial (Perceptron).}
+        \includegraphics[scale=0.8]{fluxo-perceptron.png}\\
+        {\footnotesize Fonte: Haykin (2009).}\
+        \label{fig:fluxo-perceptron}
+    \end{figure}
+    
+    \begin{itemize}
+        \item \textbf{Entrada: }
+        \item \textbf{Sinapses: }
+        \item \textbf{Bias: }
+        \item \textbf{Somador: }
+        \item \textbf{Função de ativação: }
+        \item \textbf{Saída: }
+    
+    \end{itemize}
+    % \subsection{Histórico}
+    %     As redes neurais são frequentemente consideradas um complemento à computação tradicional. Curiosamente, 
+    %     John von Neumann, amplamente reconhecido como o pai da computação moderna devido à sua proposta da arquitetura 
+    %     que possibilitou a criação do computador de programa armazenado, demonstrava grande interesse em modelar o 
+    %     funcionamento do cérebro humano. Esse interesse levantou debates entre pesquisadores sobre a possível interação 
+    %     entre as ideias de von Neumann e os primórdios das redes neurais. Alguns estudiosos destacam indícios que 
+    %     sugerem a visão de von Neumann sobre as direções futuras do desenvolvimento dos computadores~\cite{Fausett1994}.
+
+    %     Neste capítulo, serão destacados alguns marcos significativos que tiveram um papel fundamental no avanço e
+    %     desenvolvimento da área de redes neurais.
+
+    %     \subsubsection{Perceptrons}
             
-            Em 1958, o psicólogo Frank Rosenblatt publicou um artigo que, pela primeira vez, descreveu de forma 
-            algorítmica o funcionamento de um modelo de rede neural para aprendizagem supervisioanda. Essa 
-            publicação inspirou inúmeros pesquisadores a direcionarem seus esforços para estudos sobre redes neurais, 
-            explorando diversos aspectos dessa temática ao longo das décadas de 1960 e 1970~\cite{haykin2009neural}.
+    %         Em 1958, o psicólogo Frank Rosenblatt publicou um artigo que, pela primeira vez, descreveu de forma 
+    %         algorítmica o funcionamento de um modelo de rede neural para aprendizagem supervisioanda. Essa 
+    %         publicação inspirou inúmeros pesquisadores a direcionarem seus esforços para estudos sobre redes neurais, 
+    %         explorando diversos aspectos dessa temática ao longo das décadas de 1960 e 1970~\cite{haykin2009neural}.
 
-            \begin{figure}[!htb]
-                \centering
-                \caption{Fluxo do perceptron.}
-                \includegraphics[scale=0.8]{fluxo-perceptron.png}\\
-                {\footnotesize Fonte: Haykin (2009).}\
-                \label{fig:fluxo-perceptron}
-            \end{figure}
+    %         \begin{figure}[!htb]
+    %             \centering
+    %             \caption{Fluxo do perceptron.}
+    %             \includegraphics[scale=0.8]{fluxo-perceptron.png}\\
+    %             {\footnotesize Fonte: Haykin (2009).}\
+    %             \label{fig:fluxo-perceptron}
+    %         \end{figure}
 
-            Como apresentado na Figura~\ref{fig:fluxo-perceptron}, o perceptron consiste de um único neurônio com 
-            pesos sinápticos ajustáveis e um viés. Ele possui uma camada de entrada (a retina) conectada aos pesos e 
-            uma camada de saída. Seu funcionamento baseia-se em um combinador linear seguido por uma função de 
-            ativação que realiza uma função linear. Esse nó somador (o neurônio) calcula uma combinação linear das 
-            entradas aplicadas às suas sinapses, além de incorporar um viés aplicado externamente que ajusta a posição
-            da função de ativação. O resultado dessa soma é passado à função de ativação, que produz uma saída de +1 
-            se a entrada for positiva, ou -1, se for negativa. 
+    %         Como apresentado na Figura~\ref{fig:fluxo-perceptron}, o perceptron consiste de um único neurônio com 
+    %         pesos sinápticos ajustáveis e um viés. Ele possui uma camada de entrada (a retina) conectada aos pesos e 
+    %         uma camada de saída. Seu funcionamento baseia-se em um combinador linear seguido por uma função de 
+    %         ativação que realiza uma função linear. Esse nó somador (o neurônio) calcula uma combinação linear das 
+    %         entradas aplicadas às suas sinapses, além de incorporar um viés aplicado externamente que ajusta a posição
+    %         da função de ativação. O resultado dessa soma é passado à função de ativação, que produz uma saída de +1 
+    %         se a entrada for positiva, ou -1, se for negativa. 
             
-            O perceptron é um classificador binário, pois resolve apenas problemas de classificação de padrões 
-            linearmente separáveis, ou seja, é capaz de lidar exclusivamente com problemas nos quais duas classes 
-            podem ser separadas por uma linha em um hiperplano~\cite{haykin2009neural}. 
+    %         O perceptron é um classificador binário, pois resolve apenas problemas de classificação de padrões 
+    %         linearmente separáveis, ou seja, é capaz de lidar exclusivamente com problemas nos quais duas classes 
+    %         podem ser separadas por uma linha em um hiperplano~\cite{haykin2009neural}. 
 
 
         % \subsubsection{Adaline}
@@ -144,16 +181,7 @@ entendimento e progresso deste trabalho.
         %     implementadas em contextos industriais, marcando um avanço significativo na aplicação de tecnologias 
         %     baseadas em inteligência artificial. Além disso, a regra de aprendizagem Widrow-Hoff para uma rede neural 
         %     de apenas uma camada foi o percursor da regra de Backpropagation para múltiplas camadas~\cite{Fausett1994,silva2010}
-            
-    \subsection{Componentes das Redes Neurais}
-        % \subsubsection{Neurônio}
-        % \subsubsection{Camadas}
-        % \subsubsection{Função de Ativação}
-        % \subsubsection{Função de Perda}
-        % \subsubsection{Algoritmo de Otimização}
-        % \subsubsection{Taxa de Aprendizado}
-
-
+                
     \subsection{Processo de Treinamento}
         Sistemas de aprendizado de máquina podem ser categorizados de acordo com o tipo de treinamento que
         eles recebem. O aprendizado supervisionado ocorre quando o modelo é treinado por meio de exemplos explicítos. 
@@ -263,7 +291,7 @@ entendimento e progresso deste trabalho.
             \begin{center}
                 \begin{table}[h!]
                     \centering
-                    \caption{Cálculo de erros}
+                    \caption{Métricas de Avaliação}
                     \label{tab:calculo_erros}
                     \begin{tabular}{ll}
                         \toprule
@@ -283,26 +311,25 @@ entendimento e progresso deste trabalho.
             \end{center}
             
             
-    \subsection{Arquitetura}
-    %Falar o que é e botar uma imagem em todas
-        \subsubsection{Multi Layer Perceptron}         
-            %Colcar uma imagem do mlp detalhada, mostrando os pesos sinapticos, a função de ativação e a backpropagation em ação
-            O algoritmo de backpropagation ajusta os pesos da rede neural para reduzir o erro entre a saída prevista 
-            e o valor esperado. O erro é calculado e propagado pelas camadas até atingir um nível mínimo aceitável~\cite{marangoni2010}.
-            
-            \citeonline{grus2021} apresenta o funcionamento padrão do treinamento de uma rede neural utilizando o algoritmo 
-            de backpropagation como método de ajuste dos pesos. Considera-se que a rede possui \( n\),  os quais são 
-            ajustados de acordo com o seguinte procedimento:
-            \begin{enumerate}
-                \item Realiza-se o feed-forward, em que as entradas são processadas para produzir as saídas de todos os neurônios;
-                \item Como o algoritmo é supervisionado, os valores esperados das saídas são conhecidos. Assim, calcula-se uma função de perda, geralmente definida como a soma dos erros quadráticos entre as saídas reais e as esperadas;
-                \item O gradiente dessa função de perda é calculado em relação aos pesos dos neurônios de saída;
-                \item Os gradientes e os erros são propagados para trás com o objetivo de calcular os gradientes associados aos pesos dos neurônios ocultos;
-                \item Atualizam-se os pesos aplicando um passo em direção ao gradiente descendente, controlado por um parâmetro denominado learning rate (taxa de aprendizagem).
-            \end{enumerate}
-        \subsubsection{Redes Neurais Recorrentes}
-            %Colocar uma imagem de uma RNR, mostrando tudo, detalhando a rede e falar da matemática especifica sobre comoo ela salva o conteudo da camada anterior
-        \subsubsection{Redes Neurais Convolucionais}
-            %Imagem da arquitetura da rede, como ela opera, o que é a operação de convulação e os outros hiperparametros
-        \subsubsection{Long Short-Term Memory (LSTM)}
-            %Imagem do LSTM, detalhamento da rede, hiperparametros, como ela funciona e difereça entre ela e a RNC
+    \subsection{Multi Layer Perceptron}
+    %Falar o que é e botar uma imagem em todas       
+        %Colcar uma imagem do mlp detalhada, mostrando os pesos sinapticos, a função de ativação e a backpropagation em ação
+        O algoritmo de backpropagation ajusta os pesos da rede neural para reduzir o erro entre a saída prevista 
+        e o valor esperado. O erro é calculado e propagado pelas camadas até atingir um nível mínimo aceitável~\cite{marangoni2010}.
+        
+        \citeonline{grus2021} apresenta o funcionamento padrão do treinamento de uma rede neural utilizando o algoritmo 
+        de backpropagation como método de ajuste dos pesos. Considera-se que a rede possui \( n\),  os quais são 
+        ajustados de acordo com o seguinte procedimento:
+        \begin{enumerate}
+            \item Realiza-se o feed-forward, em que as entradas são processadas para produzir as saídas de todos os neurônios;
+            \item Como o algoritmo é supervisionado, os valores esperados das saídas são conhecidos. Assim, calcula-se uma função de perda, geralmente definida como a soma dos erros quadráticos entre as saídas reais e as esperadas;
+            \item O gradiente dessa função de perda é calculado em relação aos pesos dos neurônios de saída;
+            \item Os gradientes e os erros são propagados para trás com o objetivo de calcular os gradientes associados aos pesos dos neurônios ocultos;
+            \item Atualizam-se os pesos aplicando um passo em direção ao gradiente descendente, controlado por um parâmetro denominado learning rate (taxa de aprendizagem).
+        \end{enumerate}
+        % \subsubsection{Redes Neurais Recorrentes}
+        %     %Colocar uma imagem de uma RNR, mostrando tudo, detalhando a rede e falar da matemática especifica sobre comoo ela salva o conteudo da camada anterior
+        % \subsubsection{Redes Neurais Convolucionais}
+        %     %Imagem da arquitetura da rede, como ela opera, o que é a operação de convulação e os outros hiperparametros
+        % \subsubsection{Long Short-Term Memory (LSTM)}
+        %     %Imagem do LSTM, detalhamento da rede, hiperparametros, como ela funciona e difereça entre ela e a RNC
