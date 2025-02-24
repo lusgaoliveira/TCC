@@ -112,12 +112,21 @@ entendimento e progresso deste trabalho.
     \end{figure}
     
     \begin{itemize}
-        \item \textbf{Entrada: }
-        \item \textbf{Sinapses: }
-        \item \textbf{Bias: }
-        \item \textbf{Somador: }
-        \item \textbf{Função de ativação: }
-        \item \textbf{Saída: }
+        \item \textbf{Camada de Entrada: }Responsável por receber as informações do ambiente 
+        externo e transmiti-las ao restante da rede para processamento.
+        \item \textbf{Sinapses: }Representam as conexões entre os neurônios, simuladas por pesos 
+        \( w_1, w_2, \dots, w_n \), que determinam se o sinal terá um efeito estimulante (excitador) ou 
+        inibidor.
+        \item \textbf{Bias: }É um valor adicional que ajusta a ativação do neurônio, permitindo que ele 
+        se "ajuste" de forma mais flexível. O viés pode ser positivo ou negativo e ajuda a rede a decidir 
+        quando ativar ou não o neurônio, independentemente das entradas. Ele atua como uma espécie de 
+        "ajuste fino", permitindo que a rede aprenda melhor a partir dos dados.
+        \item \textbf{Somador: }Mecanismo que agrega todas as entradas, considerando seus respectivos 
+        pesos, para gerar um valor combinado.
+        \item \textbf{Função de ativação: }Limita a amplitude do sinal de saída a um intervalo finito, 
+        determinando se o neurônio será ativado com base na soma ponderada das entradas.
+        \item \textbf{Camada de Saída: }Fornece o resultado final do processamento do neurônio, 
+        representando a resposta da rede ao estímulo recebido.
     
     \end{itemize}
     % \subsection{Histórico}
