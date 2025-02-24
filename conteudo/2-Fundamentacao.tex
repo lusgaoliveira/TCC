@@ -286,7 +286,20 @@ entendimento e progresso deste trabalho.
 
         \subsubsection{Técnicas de Validação}
         %Falar o que é, porque foi criada e modo de uso
+        A validação é uma etapa crucial para avaliar a capacidade preditiva de um modelo de 
+        \emph{machine learning}, além de ser fundamental para o ajuste de seus hiperparâmetros.
         \subsubsubsection{Hold-Out}
+                É uma técnica simples de validação de modelos de \emph{machine learning}, ela consiste em dividir
+                o conjunto de dados em duas partes: uma para treino e outra para validação. Ou seja, parte dos 
+                dados é usada para treinar o modelo e a outra para testar a capacidade de previsão do modelo. 
+                Dado um conjunto de dados \emph{d}, um subconjunto \emph{p} é extraído dos dados, formando 
+                a amostra de treino \(d_t\) onde \(t = n * (1 - p)\) e amostra de validação \(d_v\) com tamanho
+                \(v = n * p\). 
+                A técnica é muito simples, vide que divide os dados entre treino e validação, dessa forma, ele
+                usa apenas uma parte dos dados para treinar o modelo. Dessa maneira, o modelo pode não generalizar
+                bem para os dados não vistos presentes no conjunto de validação, acarretando um erro de previsão
+                maior~\cite{cunha2019}.
+
         \subsubsubsection{K-Fold}
         \subsubsubsection{Leave-One-Out}
         \subsubsubsection{Bootstrap}
