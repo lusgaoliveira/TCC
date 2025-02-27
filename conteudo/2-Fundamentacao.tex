@@ -34,7 +34,22 @@ entendimento e progresso deste trabalho.
         não estacionariedade~\cite{morettin2018}.
 
     \subsection{Teste de Estacionariedade}
+        A grande maioria dos métodos mais comuns de análise estatística de séries temporais tem como princípio que as séries 
+        a serem analisadas são estacionárias. Para verificar se uma série é estacionária, é necessário utilizar algum dos testes 
+        de estacionariedade. Um dos testes mais famosos e utilizados é o teste de Dickey-Fuller Aumentado, cujo objetivo é 
+        verificar se um modelo possui ou não alguma raiz dos operadores de retardos, também chamada de raiz unitária
+        \footnote{Raízes dos operadores de retardos vêm da equação característica de um sistema. Em séries temporais, elas 
+        determinam a estacionariedade.}~\cite{costa2019}.
 
+        As hipóteses nula e alternativa do teste Dickey-Fuller Aumentado são:
+
+        \begin{center}
+            \(H_0\) : a série possui raiz unitária
+
+            \(H_1\) : a série não possui raiz unitária
+        \end{center}
+
+        Caso a série tenha raiz unitária, ela não é estacionária; se não possuir raiz unitária, a série é estacionária.
     \subsection{Decomposição}
 
         \citeonline{costa2019} destaca que ao iniciar a análise de uma série temporal é de alta valia utilizar de gráficos 
@@ -61,7 +76,6 @@ entendimento e progresso deste trabalho.
 
 
     \subsection{Modelos}
-        \subsubsection{ARMA}
         \subsubsection{ARIMA}
         \subsubsection{SARIMA}
 
