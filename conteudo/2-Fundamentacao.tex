@@ -303,21 +303,22 @@ entendimento e progresso deste trabalho.
         A validação é uma etapa crucial para avaliar a capacidade preditiva de um modelo de 
         \emph{machine learning}, além de ser fundamental para o ajuste de seus hiperparâmetros.
         \subsubsubsection{Hold-Out}
-                É uma técnica simples de validação de modelos de \emph{machine learning}, ela consiste em dividir
-                o conjunto de dados em duas partes: uma para treino e outra para validação. Ou seja, parte dos 
-                dados é usada para treinar o modelo e a outra para testar a capacidade de previsão do modelo. 
-                Dado um conjunto de dados \emph{d}, um subconjunto \emph{p} é extraído dos dados, formando 
-                a amostra de treino \(d_t\) onde \(t = n * (1 - p)\) e amostra de validação \(d_v\) com tamanho
-                \(v = n * p\). 
-                A técnica é muito simples, vide que divide os dados entre treino e validação, dessa forma, ele
-                usa apenas uma parte dos dados para treinar o modelo. Dessa maneira, o modelo pode não generalizar
-                bem para os dados não vistos presentes no conjunto de validação, acarretando um erro de previsão
-                maior~\cite{cunha2019}.
+            É uma técnica simples de validação de modelos de \emph{machine learning}, ela consiste em dividir
+            o conjunto de dados em duas partes: uma para treino e outra para validação. Ou seja, parte dos 
+            dados é usada para treinar o modelo e a outra para testar a capacidade de previsão do modelo. 
+            Dado um conjunto de dados \emph{d}, um subconjunto \emph{p} é extraído dos dados, formando 
+            a amostra de treino \(d_t\) onde \(t = n * (1 - p)\) e amostra de validação \(d_v\) com tamanho
+            \(v = n * p\). 
+            A técnica é muito simples, vide que divide os dados entre treino e validação, dessa forma, ele
+            usa apenas uma parte dos dados para treinar o modelo. Dessa maneira, o modelo pode não generalizar
+            bem para os dados não vistos presentes no conjunto de validação, acarretando um erro de previsão
+            maior~\cite{cunha2019}.
 
         \subsubsubsection{K-Fold}
-        \subsubsubsection{Leave-One-Out}
-        \subsubsubsection{Bootstrap}
-
+            Nessa técnica de validação de modelo, a amostra \emph{d} é dividida em \emph{K} partes de tamanho
+            semelhante. O processo de treino ocorre \emph{K} vezes, usando \emph{K} - 1 partes para treino e
+            uma parte para validação, alternando-as partes a cada iteração. Dessa forma, ao final dos \emph{K}
+            passos, teríamos usado todos os dados tanto para treino e validação~\cite{cunha2019}.
         \subsubsection{Métricas de Avaliação}
             Vide que a utilização de modelos de \emph{machine learning} é com o foco de predizer determinados eventos atráves
             de métodos estáticos e probabilisticos. A exatidão da previsão é o fator crucial em avaliar a qualidade de um modelo.
@@ -363,9 +364,3 @@ entendimento e progresso deste trabalho.
             \item Os gradientes e os erros são propagados para trás com o objetivo de calcular os gradientes associados aos pesos dos neurônios ocultos;
             \item Atualizam-se os pesos aplicando um passo em direção ao gradiente descendente, controlado por um parâmetro denominado learning rate (taxa de aprendizagem).
         \end{enumerate}
-        % \subsubsection{Redes Neurais Recorrentes}
-        %     %Colocar uma imagem de uma RNR, mostrando tudo, detalhando a rede e falar da matemática especifica sobre comoo ela salva o conteudo da camada anterior
-        % \subsubsection{Redes Neurais Convolucionais}
-        %     %Imagem da arquitetura da rede, como ela opera, o que é a operação de convulação e os outros hiperparametros
-        % \subsubsection{Long Short-Term Memory (LSTM)}
-        %     %Imagem do LSTM, detalhamento da rede, hiperparametros, como ela funciona e difereça entre ela e a RNC
