@@ -52,10 +52,12 @@ entendimento e progresso deste trabalho.
         Caso a série tenha raiz unitária, ela não é estacionária; se não possuir raiz unitária, a série é estacionária.
     \subsection{Decomposição}
 
-        \citeonline{costa2019} destaca que ao iniciar a análise de uma série temporal é de alta valia utilizar de gráficos 
-        criados sequencialmente no tempo, visto que isso pode revelar determinados padrões de comportamento e algumas 
-        características que podem estar presentes nos dados, como tendência, sazonalidade, ciclidade e ruído, também 
-        conhecido como erro aleatório. 
+        De acordo com \citeonline{costa2019}, a análise inicial de uma série temporal se beneficia 
+        significativamente do uso de gráficos que exibem os dados em ordem cronológica, pois essa abordagem 
+        facilita a identificação de padrões e características inerentes, tais como tendência, sazonalidade, 
+        ciclicidade e ruído (erro aleatório). Além disso, \citeonline{correa2024} esclarece o significado 
+        desses padrões, contribuindo para uma compreensão mais aprofundada dos comportamentos presentes nas 
+        séries.
         
         A tendência ($\mu_t$) representa o padrão de variação de uma grandeza ao longo do tempo. Em termos gerais, ela indica se 
         uma série temporal segue um crescimento ou um declínio de forma consistente. Séries temporais que exibem esse comportamento 
@@ -76,15 +78,92 @@ entendimento e progresso deste trabalho.
 
 
     \subsection{Modelos}
-    \citeonline{morettin2018} afirmam que modelos probabilísticos ou estocásticos podem ser construídos no 
-    domínio temporal ou de frequências. Além disso, esses modelos devem ser simples e conter um número 
-    reduzido de parâmetros.~\citeonline{morettin2018} também destacam a existência de diferentes modelos que 
-    utilizam distintos métodos computacionais para calcular a mesma estimativa, especificamente a previsão de 
-    mínimos~\footnote{O metódos dos minímos quadrados é uma técnica que busca encontrar o gráfico de melhor 
-    ajuste para um conjunto de amostras de dados~\cite{miyasaki2010}.} de um valor futuro com base em 
-    combinações lineares de valores passados.
+        \citeonline{morettin2018} afirmam que modelos probabilísticos ou estocásticos podem ser construídos no 
+        domínio temporal ou de frequências. Além disso, esses modelos devem ser simples e conter um número 
+        reduzido de parâmetros.~\citeonline{morettin2018} também destacam a existência de diferentes modelos 
+        que utilizam distintos métodos computacionais para calcular a mesma estimativa, especificamente a 
+        previsão de mínimos~\footnote{O metódo dos minímos quadrados é uma técnica que busca encontrar o 
+        gráfico de melhor ajuste para um conjunto de amostras de dados~\cite{miyasaki2010}.} de um valor 
+        futuro com base em combinações lineares de valores passados.
+
         \subsubsection{ARIMA}
+            O modelo ARIMA (Autoregressive Integrated Moving Average) foi criado nos anos 1970 por George Box
+            e Gwilym Jenkins, visando descrever as mudanças nas séries temporais utilizando a combinação de três
+            componentes principais, conhecidos também como filtros \((p, d, q)\), sendo eles:
+            \begin{itemize}
+                \item Autoregressão \emph{(AR)};
+                \item Integração \emph{(I)};
+                \item Média Móvel \emph{(MA)};
+            \end{itemize}
+
+            O componente \emph{AR}, ou filtro \(p\), tange à dependência das observações atuais em relação às observações
+            passadasm, visto que ele toma como base a intuição de que o passado prediz o futuro. Com isso, ele 
+            pressupõe um processo de série temporal no qual o valor em um ponto no tempo \(t\) é uma função
+            dos valores da série em pontos anteriores no tempo. É dada por~\eqref{eq:modelo_ar}.
+            
+            \begin{equation}
+                y_t = \phi_0 + \phi_1 y_{t-1} + \phi_2 y_{t-2} + \ldots + \phi_p y_{t-p} + e_t
+                \label{eq:modelo_ar}
+            \end{equation}
+            
+            \(y_t\) é o valor da série temporal no tempo \(t\). Sendo a variável dependente, a qual queremos
+            prever.~\(\phi_0\) constante que representa o termo intercepto. 
+            \(\phi_1, \phi_2, \ldots, \phi_p \) são os coeficientes do modelo que
+            indicam a influência dos valores passados \(y_{t-1}, y_{t-2}, \ldots, y_{t-p}\) no valor atual 
+            \(y_t\) da série. \(y_{t-1}, y_{t-2}, \ldots, y_{t-p}\) são defasagens da variável \(y_t\), ou seja,
+            valores passados da série. Sendo que a ordem \(p\) indica até quantos períodos anteriores são 
+            considerados para prever o valor atual. E \(e_t\) é um termo de erro que varia com o tempo, pressupõe-se 
+            que esse termo de erro possui uma variância constante e uma média 0.
+
+            O componente \emph{MA}, ou filtro \(q\), baseia-se em um processo no qual o valor em cada 
+            instante é determinado por uma função dos termos de ``erro'' do passado recente, tratados como 
+            independentes entre si. De forma similar a um modelo de regressão, esse componente modela a 
+            relação entre as observações atuais e os erros anteriores~\cite{nielsen2021analise,correa2024}.
+            Ele é definido pela equação~\eqref{eq:modelo_ma}, onde \(y_t\) representa o valor a ser previsto e 
+            \( \theta_1, \theta_2, \ldots, \theta_q \) são os coeficientes da média móvel, os quais ponderam 
+            os termos de erro presentes e passados~\cite{nielsen2021analise}.
+
+            \begin{equation}
+                y_t = \mu + e_t + \theta_1 e_{t-1} + \theta_2 e_{t-2} + \ldots + \theta_q e_{t-q}
+                \label{eq:modelo_ma}
+            \end{equation}
+
+            Por fim, o componente \emph{I} ou filtro \(d\), refere-se à aplicação de diferenciação aos dados 
+            com o intuito de torná-los estacionários. Em termos práticos, isso significa subtrair cada a
+            observação de sua predecessora, removendo assim tendências e sazonalidades~\cite{nielsen2021analise,correa2024}. 
+            Essa operação é descrita pela equação~\eqref{eq:modelo_i}, onde \(y'_t\) epresenta a diferença 
+            entre os valores consecutivos da série temporal, \(y_t\) é o valor da série no tempo \(t\) e \(y_{t-1}\)
+            corresponde ao período imediatamente anterior. Em essência, a diferenciação converte uma série 
+            temporal de valores em uma série de variações, facilitando a análise das mudanças ao longo do 
+            tempo.
+            
+            \begin{equation}
+                y'_t = y_t - y_{t-1}
+                \label{eq:modelo_i}
+            \end{equation}  
+
+            O ARIMA combina os modelos \emph{AR} e \emph{MA}, criando o modelo \emph{ARMA}, por fim adicionando 
+            a diferenciação \emph{I}.~\citeonline{morettin2018} recomenda que primeiro seja realizado algum teste
+            de estacionariedade na série que se deseja analisar, se ela for estacionária, o filtro \(d\) é 0,
+            dessa forma, tem-se um modelo \emph{ARMA}(p, 0, q), todavia, pode ser utilizar o modelo \emph{ARMA}
+            expressa na equação~\eqref{eq:modelo_arma}. Se a série não fo estacionária, faz-se necessário realizar
+            diferenciações para torná-la estacionária, por meio da equação \eqref{eq:modelo_i}, até que a série
+            se torne estacionária e seja possível utilizar o modelo \emph{ARMA}.
+
+            \begin{equation}
+                y_t = \phi_0 + \sum (\phi_i r_{t-i}) + e_t - \sum (\theta_i e_{t-i}) 
+                \label{eq:modelo_arma}
+            \end{equation}
+        
         \subsubsection{SARIMA}
+            Muitas séries temporais exibem padrões recorrentes que se repetem em intervalos regulares. O modelo 
+            ARIMA sazonal (SARIMA) assume uma estrutura multiplicativa para essa sazonalidade, possibilitando 
+            que o comportamento sazonal seja modelado como um processo ARIMA à parte. Assim, o modelo pode ser 
+            expresso pela notação
+            \[
+            \text{ARIMA}(p,d,q) \times (P,D,Q)_m,
+            \]
+            onde \( m \) indica o número de intervalos de tempo em cada ciclo sazonal~\cite{nielsen2021analise}.
 
 \section{Redes Neurais}
 %Falar brevemente
