@@ -1,46 +1,77 @@
-\chapter{METODOLOGIA}
-%Descrever o desenho da pesquisa
+\chapter{METODOLOGIA} % Descrever o desenho da pesquisa
 
-No decorrer deste capítulo são abordados ambiente e metodologia utilizada durante o
-desenvolvimento do presente trabalho.
+    Neste capítulo, são apresentados o ambiente e a abordagem metodológica que serão adotados para o 
+    desenvolvimento deste estudo, detalhando os procedimentos que serão seguidos desde a coleta e 
+    pré-processamento dos dados até a elaboração, treinamento e avaliação do modelo de rede neural.
 
-\section{Obtenção dos Dados}
+\section{Coleta dos Dados}
 
-    Para a aplicação de modelos de previsão, é essencial dispor de uma quantidade significativa de dados para o 
-    treinamento, validação e teste do modelo, bem como para a inferência dessas informações sobre a população como um 
-    todo. No Brasil, o Instituto Nacional de Meteorologia (INMET) é o órgão responsável pelo Banco de Dados 
-    Meteorológicos (BDMEP), planejado para coletar, armazenar, processar e disponibilizar dados e informações sobre 
-    variáveis meteorológicas. 
+    Para a implementação dos modelos de previsão, será essencial a disponibilização de uma base de dados 
+    substancial para o treinamento, validação e teste do modelo, assim como para a realização das inferências 
+    sobre a população. No Brasil, o Instituto Nacional de Meteorologia (INMET) é o responsável pelo Banco de 
+    Dados Meteorológicos (BDMEP), que tem como finalidade a coleta, armazenamento, processamento e 
+    disponibilização de dados e informações sobre variáveis meteorológicas.
 
-    Esses dados podem ser gerados localmente, por meio de estações meteorológicas convencionais ou automáticas, 
-    ou captados remotamente, utilizando sensores orbitais, radares, entre outros dispositivos~\cite{vianna2017}. 
-    O Banco de Dados Meteorológicos para Ensino e Pesquisa (BDMEP), em particular, reúne informações meteorológicas 
-    diárias provenientes das estações da rede do INMET, seguindo as normas técnicas da Organização Meteorológica 
-    Mundial (INMET, s.d.).
+    Esses dados poderão ser gerados localmente, por meio de estações meteorológicas convencionais ou 
+    automáticas, ou adquiridos remotamente, por sensores orbitais, radares, entre outros 
+    dispositivos~\cite{vianna2017}. O Banco de Dados Meteorológicos para Ensino e Pesquisa (BDMEP), 
+    especificamente, reunirá informações diárias provenientes das estações da rede do INMET, em 
+    conformidade com as normas da Organização Meteorológica Mundial (INMET, s.d.). Os dados utilizados 
+    neste estudo corresponderão ao período de 25/06/2009 a 31/12/2024, provenientes da estação meteorológica 
+    automática localizada na cidade de Itapetinga-BA.
 
-    Os dados utilizados no presente trabalho refere-se do período de 25/06/2009 a 31/12/2024, sendo dos dados 
-    diários da estação meteorológica automática presente na cidade de Itapetinga-BA.
-% O presente trabalhou utilizou os dados da estação meterológica autmática 
-\section{Preparação dos Dados}
-    Na preparação de dados foi realizada inicialmente uma análise exploratória dos dados, afim de uma inspeção
-    inicial dos dados com o objetivo de identificar padrões, anomalias e relações importantes. 
-    Tuckey (1977) afirma que a análise exploratória de dados (AED) é um processo investigativo, semelhante ao 
-    trabalho de um detetive que busca pistas e evidências, enquanto a análise confirmatória de dados se 
-    assemelha ao trabalho judicial, no qual as evidências são analisadas. Dessa forma, foi realizado o tratamento
-    de anomalias nos dados, como outliers, dados faltantes entre outros. CITAR
+\section{Pré-processamento dos Dados}
 
-% \section{Desenvolvimento do Modelo de Rede Neural}
-%     Falar sobre como desenvolveu o modelo, as bibiliotecas que serão utilizadas para a construção do mesmo
-%     e possíveis técnicas.
+    O pré-processamento dos dados terá início com a análise exploratória, com o objetivo de identificar 
+    padrões, anomalias e relações relevantes. De acordo com~\citeonline{tuckey1977}, a análise exploratória 
+    de dados (AED) será caracterizada por um processo investigativo, análogo ao trabalho de um detetive, 
+    que buscará pistas e evidências, enquanto a análise confirmatória de dados se assemelhará ao trabalho 
+    judicial, onde as evidências serão testadas e verificadas.
 
-% \section{Treinamento e Validação do Modelo}
-%     Falar sobre os hiperparametros do modelo e técnica de validação
-% \section{Avaliação e Análise dos Resultados}
-%     Falar dos resultados7777
+    Com base nesse conceito, será realizado o tratamento de inconsistências nos dados, incluindo a remoção 
+    ou correção de valores atípicos (\emph{outliers}), o preenchimento de dados ausentes e a normalização das 
+    variáveis para garantir sua compatibilidade com o modelo de rede neural. Essas etapas serão essenciais 
+    para garantir que o modelo seja treinado com um conjunto de dados consistente e representativo.
 
-\section{Aplicação de Redes Neurais Artificiais}
-    Para desenvolver o modelo foi utilizado o ambiente do \emph{Google Colab} sendo \emph{python} a linguagem
-    utilizada. Além disso, os dados foram divididos em três grupos: o primeiro para ser utilizado na fase de 
-    treinamento, o segundo para a fase de validação e o último para teste do modelo.
+\section{Construção do Modelo de Rede Neural}
+
+    A construção do modelo de rede neural será baseada na arquitetura \emph{Multi-Layer Perceptron} (MLP), 
+    uma das mais utilizadas para previsão de séries temporais. Para a implementação do modelo, serão 
+    empregadas as bibliotecas \emph{TensorFlow} e \emph{Keras}, que fornecerão suporte para a construção e 
+    treinamento de redes neurais. Adicionalmente, serão aplicadas técnicas como \emph{dropout}, 
+    regularização L2 e otimização com o algoritmo \emph{Adam} para evitar sobreajuste e aprimorar a 
+    capacidade preditiva do modelo.
+
+\section{Treinamento e Validação do Modelo}
+
+    O treinamento do modelo será realizado com o conjunto de dados previamente preparado, utilizando a 
+    técnica de validação cruzada e \emph{early stopping} para prevenir sobreajuste. Os hiperparâmetros, 
+    como a taxa de aprendizado, o número de camadas ocultas, o número de neurônios por camada e o tamanho 
+    do lote (\emph{batch size}), serão ajustados conforme necessário.
+
+    A divisão dos dados será realizada da seguinte forma: 
+    \begin{itemize} 
+        \item \textbf{Treinamento}: 70\% dos dados, utilizados para ajuste dos pesos da rede neural. 
+        \item \textbf{Validação}: 15\% dos dados, empregados para avaliação do desempenho do modelo durante 
+        o treinamento e ajuste dos hiperparâmetros. 
+        \item \textbf{Teste}: 15\% dos dados, usados para avaliação da capacidade preditiva final do modelo. 
+    \end{itemize}
 
 \section{Avaliação e Análise dos Resultados}
+
+    A avaliação do modelo será realizada por meio de métricas amplamente adotadas na previsão de 
+    séries temporais, tais como: 
+    \begin{itemize} 
+        \item \textbf{Erro Quadrático Médio (MSE - Mean Squared Error)}: medida da média dos erros ao quadrado, 
+        penalizando desvios maiores.
+        \item \textbf{Raiz do Erro Quadrático Médio (RMSE - Root Mean Squared Error)}: fornecendo uma 
+        interpretação mais intuitiva do erro, mantendo a mesma unidade da variável predita. 
+        \item \textbf{Erro Absoluto Médio (MAE - Mean Absolute Error)}: medida da média dos erros absolutos, 
+        sendo menos sensível a grandes \emph{outliers} do que o MSE. 
+        \item \textbf{Coeficiente de Determinação (R2R2)}: medida da proporção da variabilidade explicada 
+        pelo modelo, indicando sua qualidade preditiva. \end{itemize}
+
+    A análise dos resultados será realizada por meio da comparação do desempenho do modelo com abordagens 
+    tradicionais de previsão, como médias móveis e modelos estatísticos baseados em regressão linear. 
+    A partir dessa análise, será possível verificar a eficácia do modelo proposto na previsão da 
+    temperatura média da cidade de Itapetinga-BA.
