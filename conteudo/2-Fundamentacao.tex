@@ -435,16 +435,61 @@ entendimento e progresso deste trabalho.
             
             
     \subsection{Multi Layer Perceptron}
-    %Falar o que é e botar uma imagem em todas       
-        %Colcar uma imagem do mlp detalhada, mostrando os pesos sinapticos, a função de ativação e a backpropagation em ação
-        O algoritmo de backpropagation ajusta os pesos da rede neural para reduzir o erro entre a saída prevista 
-        e o valor esperado. O erro é calculado e propagado pelas camadas até atingir um nível mínimo aceitável~\cite{marangoni2010}.
+    %Falar o que é e botar uma imagem em todas 
+    
+        Em 1958, o psicólogo Frank Rosenblatt publicou um artigo que, pela primeira vez, descreveu de forma 
+        algorítmica o funcionamento de um modelo de rede neural para aprendizagem supervisioanda. Essa 
+        publicação inspirou inúmeros pesquisadores a direcionarem seus esforços para estudos sobre redes neurais, 
+        explorando diversos aspectos dessa temática ao longo das décadas de 1960 e 1970~\cite{haykin2009neural}.
+
+        Como apresentado na Figura~\ref{fig:fluxo-perceptron}, o perceptron consiste de um único neurônio com 
+        pesos sinápticos ajustáveis e um viés. Ele possui uma camada de entrada (a retina) conectada aos pesos e 
+        uma camada de saída. Seu funcionamento baseia-se em um combinador linear seguido por uma função de 
+        ativação que realiza uma função linear. Esse nó somador (o neurônio) calcula uma combinação linear das 
+        entradas aplicadas às suas sinapses, além de incorporar um viés aplicado externamente que ajusta a posição
+        da função de ativação. O resultado dessa soma é passado à função de ativação, que produz uma saída de +1 
+        se a entrada for positiva, ou -1, se for negativa. 
         
+        O \emph{Perceptron} é um classificador binário, pois resolve apenas problemas de classificação de padrões 
+        linearmente separáveis, ou seja, é capaz de lidar exclusivamente com problemas nos quais duas classes 
+        podem ser separadas por uma linha em um hiperplano~\cite{haykin2009neural}. 
+
+        Com o objetivo de solucionar problemas não linearmente separáveis, que o \emph{Perceptron} não consegue 
+        lidar, surge a \emph{Multi-Layer Perceptron (MLP)}, uma generalização da rede \emph{Perceptron}, que 
+        adiciona camadas de neurônios intermediários, comumente chamadas de camadas ocultas, situadas entre 
+        a camada de entrada e a respectiva camada de saída. O treinamento dessa arquitetura também é 
+        supervisionado, e as funções de ativação mais usuais são a sigmoide logística e a tangente 
+        hiperbólica~\cite{soares2016mlp}.
+        
+        \citeonline{silva2010} destaca que a rede \emph{MLP} é uma das mais versáteis em termos de aplicação, 
+        sendo amplamente utilizada para tarefas como aproximação universal de funções, reconhecimento de padrões, 
+        identificação e controle de processos, previsão de séries temporais e otimização de sistemas.  
+
+        Além disso, \citeonline{silva2010} ressalta uma diferença fundamental entre o \emph{Perceptron} e a \emph{MLP}: 
+        enquanto o \emph{Perceptron} possui uma única saída, a \emph{MLP} pode contar com múltiplos neurônios na camada 
+        de saída, permitindo que cada um deles represente uma variável distinta do problema modelado. Assim, se um 
+        processo apresenta \(m\) saídas, a \emph{MLP} terá \(m\) neurônios em sua última camada. Outro aspecto essencial 
+        dessa arquitetura é o seu processo de aprendizado supervisionado, realizado por meio do algoritmo 
+        \emph{backpropagation}, também conhecido como algoritmo de retropropagação.
+
+
+        %Colcar uma imagem do mlp detalhada, mostrando os pesos sinapticos, a função de ativação e a backpropagation em ação
+        O algoritmo de \emph{backpropagation} ajusta os pesos da rede neural para reduzir o erro entre a 
+        saída prevista e o valor esperado. O erro é calculado e propagado pelas camadas até atingir um nível 
+        mínimo aceitável~\cite{marangoni2010}.
+        
+        \begin{figure}[!htb]
+            \centering
+            \caption{Backpropagation.}
+            \includegraphics[scale=0.6]{backpropagation.png}\\
+            {\footnotesize Fonte: Da Silva (2016).}\
+            \label{fig:fluxo-backpropagation}
+        \end{figure}
         \citeonline{grus2021} apresenta o funcionamento padrão do treinamento de uma rede neural utilizando o algoritmo 
         de backpropagation como método de ajuste dos pesos. Considera-se que a rede possui \( n\),  os quais são 
         ajustados de acordo com o seguinte procedimento:
         \begin{enumerate}
-            \item Realiza-se o feed-forward, em que as entradas são processadas para produzir as saídas de todos os neurônios;
+            \item Realiza-se o \emph{feed-forward}, em que as entradas são processadas para produzir as saídas de todos os neurônios;
             \item Como o algoritmo é supervisionado, os valores esperados das saídas são conhecidos. Assim, calcula-se uma função de perda, geralmente definida como a soma dos erros quadráticos entre as saídas reais e as esperadas;
             \item O gradiente dessa função de perda é calculado em relação aos pesos dos neurônios de saída;
             \item Os gradientes e os erros são propagados para trás com o objetivo de calcular os gradientes associados aos pesos dos neurônios ocultos;
