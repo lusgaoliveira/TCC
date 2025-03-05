@@ -34,12 +34,12 @@ entendimento e progresso deste trabalho.
         não estacionariedade~\cite{morettin2018}.
 
     \subsubsection{Teste de Estacionariedade}
-        A grande maioria dos métodos mais comuns de análise estatística de séries temporais tem como princípio que as séries 
-        a serem analisadas são estacionárias. Para verificar se uma série é estacionária, é necessário utilizar algum dos testes 
-        de estacionariedade. Um dos testes mais famosos e utilizados é o teste de Dickey-Fuller Aumentado, cujo objetivo é 
-        verificar se um modelo possui ou não alguma raiz dos operadores de retardos, também chamada de raiz unitária
-        \footnote{Raízes dos operadores de retardos vêm da equação característica de um sistema. Em séries temporais, elas 
-        determinam a estacionariedade.}~\cite{costa2019}.
+        A maioria dos métodos comuns de análise estatística de séries temporais parte do princípio de que as 
+        séries a serem analisadas são estacionárias. Para verificar essa condição, é necessário aplicar 
+        testes de estacionariedade. Um dos mais conhecidos e utilizados é o teste de Dickey-Fuller Aumentado, 
+        que tem como objetivo identificar a presença de raízes unitárias nos operadores de 
+        retardos\footnote{Raízes dos operadores de retardos vêm da equação característica de um sistema. 
+        Em séries temporais, elas determinam a estacionariedade.}~\cite{costa2019}
 
         As hipóteses nula e alternativa do teste Dickey-Fuller Aumentado são:
 
@@ -143,13 +143,14 @@ entendimento e progresso deste trabalho.
             \end{equation}  
 
             O ARIMA combina os modelos \emph{AR} e \emph{MA}, criando o modelo \emph{ARMA}, por fim adicionando 
-            a diferenciação \emph{I}.~\citeonline{morettin2018} recomenda que primeiro seja realizado algum teste
-            de estacionariedade na série que se deseja analisar, se ela for estacionária, o filtro \(d\) é 0,
-            dessa forma, tem-se um modelo \emph{ARMA}(p, 0, q), todavia, pode ser utilizar o modelo \emph{ARMA}
-            expressa na equação~\eqref{eq:modelo_arma}. Se a série não fo estacionária, faz-se necessário realizar
-            diferenciações para torná-la estacionária, por meio da equação \eqref{eq:modelo_i}, até que a série
-            se torne estacionária e seja possível utilizar o modelo \emph{ARMA}.
+            a diferenciação \emph{I}.~\citeonline{morettin2018} recomenda que, antes da modelagem, seja realizado um teste
+            de estacionariedade na série a ser analisada. Se a série for estacionária, o filtro \(d\) será 0, 
+            resultando em um modelo \emph{ARMA}(p, 0, q). Todavia, pode-se utilizar o modelo \emph{ARMA}
+            expresso na equação~\eqref{eq:modelo_arma}.  Caso a série não seja estacionária, torna-se necessário aplicar 
+            diferenciações, conforme a equação \eqref{eq:modelo_i}, até que a série se estabilize e o modelo \emph{ARMA} possa 
+            ser empregado.
 
+            
             \begin{equation}
                 y_t = \phi_0 + \sum (\phi_i r_{t-i}) + e_t - \sum (\theta_i e_{t-i}) 
                 \label{eq:modelo_arma}
@@ -167,13 +168,11 @@ entendimento e progresso deste trabalho.
 
 \section{Redes Neurais}
 %Falar brevemente
-    Com o avanço dos estudos sobre o funcionamento do cerebro humano. Analisando o cerebro, percebeu-se a 
-    constituição complexa, não linear e paralela dele, sendo composto por 10 bilhos de neurônios.
-    Cada neurônio conectado, em média, a outros 10 bilhões de neurônios, formando uma 
-    vasta e sofistiada rede~\cite{haykin2009neural}.
+    Analisando o cerebro, percebeu-se a constituição complexa, não linear e paralela dele, sendo composto por 10 bilhos de neurônios.
+    Cada neurônio conectado, em média, a outros 10 bilhões de neurônios, formando uma vasta e sofistiada rede~\cite{haykin2009neural}.
 
     Em uma rede neural, a comunicação é realizada através de sinais eletroquímicos, e esses sinais são transmitidos 
-    e processados atráves dos componentes presentes em sua estrutura. Os componentes presentes na estrutura de um neurônio 
+    e processados através dos componentes presentes em sua estrutura. Os componentes presentes na estrutura de um neurônio 
     são exibidos na Figura \ref{fig:neuronio_biologico}:
     \begin{figure}[!htb]
         \centering
@@ -187,7 +186,7 @@ entendimento e progresso deste trabalho.
         \item \textbf{Corpo Celular ou Soma: }responsável por integrar os sinais recebidos de outros neurônios;
         \item \textbf{Dendritos: }responsáveis por receber informações transmitidas por outros neurônios. 
         São consideradas as zonas receptivas;
-        \item \textbf{Axônio: }responsável por transmitir as informações para outros neurônio também chamadoo de linha de 
+        \item \textbf{Axônio: }responsável por transmitir as informações para outros neurônio, também chamado de linha de 
         transmissão;
     \end{itemize}
 
@@ -197,7 +196,7 @@ entendimento e progresso deste trabalho.
     convencionais~\cite{haykin2009neural}. Ao entender de que forma o cerebro humano processa informações, cientistas buscaram 
     reproduzir seu funcionamento de forma artificial.
     
-    Com isso, surgiram as Redes Neurais Artificiais (RNA's), que tenta mimetizar o sistema nervoso humano, RNA's são capazes de
+    Com isso, surgiram as Redes Neurais Artificiais (RNA's), que tenta mimetizar o sistema nervoso humano. RNA's são capazes de
     assimilar e reter conhecimento, possuíndo um alto grau de paralelsimo e extremamente conectada. As RNA's são utilizadas para
     desempenhar a mesma função após o treinamento. Sendo seu elemento constituinte chamado de neurônio artificial~\cite{ulinick2019}.
 
@@ -293,9 +292,9 @@ entendimento e progresso deste trabalho.
                 
     \subsection{Processo de Treinamento}
         Sistemas de aprendizado de máquina podem ser categorizados de acordo com o tipo de treinamento que
-        eles recebem. O aprendizado supervisionado ocorre quando o modelo é treinado por meio de exemplos explicítos. 
-        Em contrapartida, no aprendizado não supervisionado, não há a definição de exemplos explicítos para orientar o 
-        modelo. Além disso, existem diversas boas práticas para garantir que o modelo consiga realizar um bom aprendizado 
+        eles recebem. O aprendizado supervisionado ocorre quando o modelo é treinado por meio de exemplos explícitos. 
+        Em contrapartida, no aprendizado não supervisionado, não há a definição de exemplos explícitos para orientar o 
+        modelo. Além disso, existem diversas boas práticas para garantir que o modelo consiga realizar um aprendizado satisfatório 
         e métricas para avalia-lo
          
         \subsubsection{Aprendizado Supervisionado e Não Supervisionado}  
@@ -304,11 +303,11 @@ entendimento e progresso deste trabalho.
             os dados de entrada e \(y\) o valor esperado (ou rótulo). Durante o treinamento, o modelo compara as 
             previsões feitas com os valores reais utilizando uma função de perda, que mede o erro. Em seguida, 
             seus parâmetros são ajustados iterativamente, geralmente por meio de métodos como o gradiente descendente, 
-            para minimizar esse erro e melhorar a precisão das previsões.
+            para minimizar esse erro e melhorar a precisão das previsões~\cite{ulinick2019}.
             
             No aprendizado não supervisionado, o modelo não recebe o par de dados \((x,y)\), mas apenas as entradas 
             \(x\). A partir disso, ele busca identificar padrões, estruturas ou associações presentes nos dados, 
-            ajustando os pesos de acordo com o objetivo do método utilizado.
+            ajustando os pesos de acordo com o objetivo do método utilizado~\cite{ulinick2019}.
 
         
         \subsubsection{Pre-Processamento dos Dados}
@@ -365,7 +364,7 @@ entendimento e progresso deste trabalho.
                 \end{itemize}
 
         \subsubsection{Overfitting e Undefitting}
-            Ao construir modelos de redes neurais, diversos desafios podem surgir, sendo dois dos mais comuns o 
+            Ao construir modelos de redes neurais, diversos desafios podem surgir, sendo dois dos mais comuns: o 
             \emph{Overfitting} e o \emph{Underfitting}. O \emph{Overfitting} ocorre quando o modelo aprende tão 
             bem os padrões dos dados de treinamento que sua capacidade de generalização para novos dados é 
             comprometida. Isso acontece porque o modelo não apenas captura as características relevantes dos dados, 
